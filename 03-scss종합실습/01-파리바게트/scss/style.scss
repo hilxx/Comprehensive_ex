@@ -1,0 +1,682 @@
+// 1. 변수 선언
+// 2. nesting
+// 3. mixin
+
+//1. 변수 선언
+$메인컬러: #023586;
+$글자색: #4a4a4a;
+$링크색: #111;
+$반응형767: 767px;
+$반응형360: 360px;
+
+//3.mixin
+//position flex gradient 반응형
+@mixin pos($p: absolute, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $p;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin flexLayout($justify: space-between, $gap: null) {
+    display: flex;
+    justify-content: $justify;
+    gap: $gap;
+}
+
+@mixin bgGradient() {
+    width: 100%;
+    height: 0%;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.5+100 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=0);
+    /* IE6-9 */
+}
+
+@mixin respond($size) {
+    @media screen and (max-width:$size) {
+        @content;
+    }
+}
+
+//.inner
+.inner {
+    max-width: 1420px;
+    margin: 0 auto;
+    // background-color: rgba(255, 0, 0, 0.2);
+
+    //반응형 바로 쓰기
+    @include respond($반응형767) {
+        max-width: 95%;
+    }
+}
+
+body {
+    // background-color: #ccc;
+    @include respond($반응형767){
+        font-size: 12px;
+    }
+}
+
+//header
+header {
+    background: $메인컬러;
+    // height:90px;
+    position: relative;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+
+    .inner {
+        // padding:0 50px;
+
+        @include respond($반응형767) {
+            @include flexLayout();
+            align-items: center;
+        }
+
+        .ham-btn {
+            display: none;
+
+            @include respond($반응형767) {
+                display: block;
+            }
+        }
+
+        .logo {
+            @include pos($left: 50%, $top: 50%);
+            font-size: 0;
+            // h1에 폰트의 기본 사이즈가 잡혀있기 때문에 img 위아래 여백이 없어도 공백이 뜬다.
+            // 불필요한 여백을 줄이려면 vertical-align:center를 주고, font-size:0을 주고
+            // position 값을 조절하면 된다!
+            transform: translate(-50%, -50%);
+
+            @include respond($반응형767) {
+                img {
+                    width: 180px;
+                }
+            }
+        }
+
+        .gnbWrap {
+            @include flexLayout();
+            align-items: center;
+            height: 90px;
+
+            // line-height를 주거나 padding을 주거나,
+            // header에 높이주고, gnbWrap에 똑같은 높이 줘서 header높이 살리기
+            // header에 높이 준 거 주석 -> 자식의 높이의 따라 부모의 높이도 높아짐!
+            @include respond($반응형767) {
+                height: 60px;
+            }
+
+            >div {
+                @include flexLayout($gap: 20px);
+                align-items: center;
+
+                >ul {
+                    @include flexLayout($gap: 20px);
+
+                    @include respond($반응형767) {
+                        display: none;
+                    }
+
+                    >li {
+                        &::after {
+                            content: "";
+                            display: block;
+                            width: 0;
+                            height: 2px;
+                            background: white;
+                            position: relative;
+                            top: 0;
+                            transition: 0.5s;
+                        }
+
+                        &:hover::after {
+                            width: 100%;
+                        }
+
+                        >a {
+                            display: block;
+                            color: white;
+                            font-size: 15px;
+                            font-weight: bold;
+                            // background-color:skyblue;
+                            line-height: 90px;
+                        }
+
+                        &.color::after {
+                            background: #feda24;
+                        }
+
+                        &.color {
+                            >a {
+                                color: #feda24;
+                            }
+                        }
+
+                        .subWrap {
+                            display: none;
+                            // display flex가 있어서 none이 안됨 -> 제이쿼리 hide로 주기 or
+                            // float로 주기
+                            background: white;
+                            @include pos($top: 90px);
+                            // @include flexLayout($gap:80px);
+                            line-height: 3;
+                            padding: 20px;
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+                            >div {
+                                @include flexLayout($gap: 50px);
+                                float: left;
+
+                                &:nth-child(1) {
+                                    margin-right: 50px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .search-btn {
+                    img {
+                        width: 20px;
+                        // search img 크기 줄이기
+                    }
+                }
+            }
+        }
+    }
+}
+
+//.mobile-nav
+.mobile-nav {
+    display: none;
+
+    @include respond($반응형767) {
+        // display: block;
+        width: 280px;
+        height: 100vh;
+        background: white;
+        position: fixed;
+        top: 0;
+        left: -280px;
+        // 왼쪽에서 나오게 하기 위해서!
+        line-height: 2.5;
+        text-indent: 30px;
+
+        .gnbWrap {
+            border-top: 1px solid #eee;
+            // border-bottom: 1px solid #eee;
+            padding: 0 0 20px;
+
+            >div {
+                >ul {
+                    padding: 20px 0;
+                    border-bottom: 1px solid #eee;
+
+                    .subWrap {
+                        text-indent: 50px;
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .snsWrap {
+            .sns {
+                //규칙적일 땐 for문 쓰기
+                @include flexLayout(center, 20px);
+
+                li {
+                    a {
+                        display: block;
+                        width: 40px;
+                        height: 40px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 60%;
+                        border: 1px solid $메인컬러;
+                        border-radius: 50%;
+                    }
+
+                    @for $i from 1 through 3 {
+                        &:nth-child(#{$i}) {
+                            a {
+                                @if($i==1) {
+                                    background-size: 35%;
+                                }
+
+                                background-image:url(../images/sns_ico_0#{$i}.svg)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//#container
+#container {
+    overflow:hidden;
+    // display: none;
+    .mainBanner {
+        @include flexLayout();
+
+        @include respond($반응형767) {
+            width: 150%;
+        }
+
+        @include respond($반응형360) {
+            width: 300%;
+        }
+
+        >div {
+            flex: 1;
+            position: relative;
+
+            img {
+                width: 100%;
+            }
+
+            .gradient {
+                @include pos($top: 0, $left: 0);
+                background: rgba(0, 0, 0, 0.5);
+                width: 100%;
+                height: 100%;
+            }
+
+            &:hover .gradient {
+                display: none;
+            }
+        }
+    }
+
+    main {
+        section {
+            margin: 120px auto 0;
+            position: relative;
+            // .more-btn의 부모
+
+            >.title {
+                margin-bottom: 50px;
+                font-size: 1.8em;
+                font-family: "PB", sans-serif;
+
+                @include respond($반응형360) {
+                    text-align: center;
+                }
+            }
+
+            >.more-btn {
+                @include pos($top: 0, $right: 0);
+
+                @include respond($반응형360) {
+                    position: static;
+                    text-align: center;
+                }
+
+                font-weight:bold;
+
+                a {
+                    display: inline-block;
+                    color: #000;
+                    border-bottom: 2px solid black;
+                    padding: 5px 0;
+                }
+            }
+
+            ul {
+                @include flexLayout($gap: 20px);
+
+                li {
+                    position: relative;
+                    //&.magazine-list>.text-box의 부모
+                    margin-bottom: 20px;
+
+                    .img-box {
+                        position: relative;
+
+                        img {
+                            width: 100%;
+                        }
+
+                        &::after {
+                            content: "";
+                            display: block;
+                            @include bgGradient();
+                            @include pos($bottom: 0, $left: 0);
+                            transition: 0.5s;
+                        }
+
+                        &:hover::after {
+                            height: 100%;
+                        }
+                    }
+
+                    .text-box {
+                        word-break: keep-all;
+                    }
+                }
+
+                &.magazine-list {
+                    @include respond($반응형360) {
+                        display: block;
+                    }
+
+                    li {
+                        @include respond($반응형767) {
+                            &:nth-child(3) {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .img-box::after {
+                        height: 50%;
+                    }
+
+                    .text-box {
+                        @include pos($bottom: 0, $left: 0);
+                        padding: 30px;
+                        color: white;
+                        font-family: "PB";
+                        word-break: keep-all;
+
+                        strong {
+                            font-size: 2em;
+                        }
+
+                        p {
+                            margin-top: 30px;
+                            font-size: 1.2em;
+                        }
+                    }
+                }
+
+                &.story-list {
+                    flex-wrap: wrap;
+
+                    li {
+                        width: calc(50% - 20px);
+
+                        // ul에게 준 gap:20px을 빼면 됨
+                        @include respond($반응형767) {
+                            width: 100%;
+                        }
+
+                        a {
+                            @include flexLayout();
+
+                            >div {
+                                flex: 1;
+
+                                &.img-box {}
+
+                                &.text-box {
+                                    padding-left: 20px;
+
+                                    span {
+                                        color: #023586;
+                                    }
+
+                                    .post-title {
+                                        font-family: "PB";
+                                        font-size: 1.72em;
+                                        padding: 20px 0;
+                                    }
+
+                                    .post-excerpt {
+                                        @include respond($반응형360) {
+                                            display: none;
+                                        }
+                                    }
+
+                                    .post-date {
+                                        font-size: 0.7em;
+                                        padding: 20px 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.promotion-list {
+                    li {
+                        a {
+                            >div {
+                                &.text-box {
+                                    padding-top: 20px;
+
+                                    strong {
+                                        display: block;
+                                        font-family: "PB";
+                                        font-size: 1.285717em;
+                                        padding: 20px 0 10px;
+                                        line-height: 1.7;
+
+                                        &:hover {
+                                            text-decoration: underline;
+                                        }
+                                    }
+
+                                    span {
+                                        font-size: 0.85714em;
+                                        color: rgb(136, 136, 136);
+
+                                        &:hover {
+                                            text-decoration: underline;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    @include respond($반응형767) {
+                        flex-wrap: wrap;
+
+                        // width:200%;
+                        li {
+                            width: calc(50% - 10px);
+                        }
+                    }
+
+                    @include respond($반응형360) {
+                        li {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            &.custom {
+                // display:flex;
+                @include flexLayout($justify: space-evenly);
+
+                @include respond($반응형767) {
+                    display: block;
+                    padding: 0 20px;
+                }
+
+                >div {
+                    flex: 1;
+                    border-right: 1px solid $메인컬러;
+                    padding: 0 40px;
+                    position: relative;
+
+                    @include respond($반응형767) {
+                        border-right: none;
+                        border-bottom: 1px solid $메인컬러;
+                        padding: 30px 0;
+                    }
+
+                    span {
+                        color: $메인컬러;
+                    }
+
+                    p {
+                        margin-top: 20px;
+                        font-size: 1.3em;
+                        font-family: "PB";
+                        font-weight: 700;
+
+                        &.arrow {
+                            @include pos($top: 20%, $right: 30px);
+                            transform: translateY(-50%) rotate(45deg);
+
+                            @include respond($반응형767) {
+                                top: 40%;
+                            }
+
+                            a {
+                                display: block;
+                                width: 20px;
+                                height: 20px;
+                                border-top: 2px solid black;
+                                border-right: 2px solid black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//footer
+footer {
+    // display: none;
+    text-align: center;
+    background: #454a56;
+    color: white;
+    position: relative;
+
+    .footTop {
+        padding: 40px 0 10px;
+        border-bottom:1px solid rgb(153, 153, 153);
+        ul {
+            @include flexLayout(center, 20px);
+            &.sns {
+                // padding: 20px 0;
+
+                li {
+                    // text-align:center;
+                    // line-height: 50px;
+                    // width:30%;
+
+                    &:first-child a img{
+                        width: 40%;
+                    }
+                    // = &:first-child {
+                    //     a {
+                    //         img {
+                    //             width: 40%;
+                    //         }
+                    //     }
+                    // }
+
+                    a {
+                        display: block;
+                        width: 40px;
+                        height: 40px;
+                        background: whitesmoke;
+                        border-radius: 50%;
+                        line-height:40px;
+                        img {
+                            width: 60%;
+                        }
+                    }
+                }
+            }
+
+            &.foot-menu {
+                margin-top: 20px;
+                @include respond($반응형767){
+                    flex-wrap:wrap;
+                    // 두 줄이 되도록!
+                    row-gap:5px;
+                }
+                // @include flexLayout(center, 10px);
+                // padding: 10px 0;
+
+                li {
+                    border-right: 2px solid white;
+                    line-height: 0.9;
+                    padding-right: 10px;
+
+                    a {
+                        font-size: 0.85714em;
+                        // display: block;
+                        color: white;
+                        // padding-right: 10px;
+                    }
+
+                    &.red {
+                        a {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footBottom {
+        line-height: 3;
+        color: rgb(153, 153, 153);
+        font-size: 0.85714em;
+        // @include flexLayout(center);
+        // p {
+        //     color: rgb(153, 153, 153);
+        //     font-size: 0.85714em;
+        // }
+    }
+
+    // &::after {
+    //     content: "";
+    //     width: 100%;
+    //     height: 1px;
+    //     background: rgb(153, 153, 153);
+    //     position: absolute;
+    //     bottom: 40px;
+    //     left: 0;
+    // }
+}
+
+//#aside-menu
+#aside-menu {
+    display: none;
+    @include respond($반응형767){
+        display:block;
+    }
+    @include pos($p:fixed,$bottom:0,$left:0);
+    background: #111;
+    width:100%;
+    padding:10px 0;
+
+    ul{
+        @include flexLayout(space-around,0);
+        li{
+            text-align:center;
+            flex:1;
+            a{
+                color:white;
+                img{
+                    height:20px;
+                }
+                span{
+                    display:block;
+                    margin-top:5px;
+                }
+            }
+        }
+    }
+}

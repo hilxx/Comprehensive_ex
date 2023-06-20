@@ -1,0 +1,228 @@
+#header{
+    background-color:rgba(25,0,0,0.2);
+    border-bottom:2px solid #b60b13;
+}
+.innerBox{
+    max-width:1200px;
+    margin: 0 auto;
+    text-align:center;
+    background-color:pink;
+    position:relative;
+}
+.innerBox>.logo{
+    padding:20px 0;
+}
+.innerBox>.gnb_left{
+    position:absolute;
+    top:20px;
+}
+.innerBox>.gnb_left>li{
+    float:left;
+    margin-right:20px;
+}
+.innerBox>.gnb_right{
+    position:absolute;
+    top:20px;
+    right:0;
+}
+.innerBox>.gnb_right>li{
+    float:left;
+    margin-left:20px;
+    font-size:0.9em;
+}
+.navWrap{}
+/* .navWrap>.nav{
+    box-sizing:border-box;
+    padding: 0 20px;
+} */
+.navWrap>.nav:hover .depth1{
+    display:block;
+}
+.navWrap>.nav>li{
+    float:left;
+    margin-left:20px;
+    width:170px;
+    line-height:2.5;
+    position:relative;
+}
+.navWrap>.nav>li>a{
+    font-size:1.2em;
+    font-weight:700;
+    color:#333;
+}
+.navWrap>.nav>li:hover>a{
+    background:#b60b13;
+    display:block;
+    width:100%;
+    color:white;
+}
+
+.depth1{
+    display:none;
+    position:absolute;
+    background-color:#333;
+    top:40px;
+    left:0;
+    padding: 10px 20px 0 0px;
+    width:100%;
+    /* innerBox를 nav가 아닌 navWrap에 줘서 정렬이 안 맞는 거였음 */
+    height:280px;
+    line-height:3;
+    z-index:10;
+}
+.depth1>li{
+}
+.depth1>li>a:hover{
+    color:white;
+}
+/* #container{} */
+#container>.mainBanner{
+    overflow:hidden;
+    position:relative;
+}
+.banner{
+    width:400%;
+}
+.banner img{
+    width:100%;
+}
+#container>.mainBanner>.banner>li{
+    float:left;
+    width:25%;
+}
+#container>.mainBanner>.pager{
+    position:absolute;
+    width:5px;
+    height:5px;
+    background-color:#ccc;
+    border-radius:50%;
+}
+/* contents */
+#container>.innerBox{
+    width:1000px;
+    text-align:left;
+}
+/* .franchise-store */
+.contents>div>div{
+    float:left;
+}
+.contents>.franchise-store>.online-mall{
+    margin: 0 10px;
+}
+.contents>.franchise-store>.online-mall>h2{
+    color:#b60b13;
+    font-weight:700;
+}
+.contents>.franchise-store>.online-mall>p{
+    padding:10px 0;
+}
+.contents>.franchise-store>.online-mall li{
+    float:left;
+}
+.contents>.franchise-store>.online-mall li img{
+    padding:10px 10px 0 20px;
+    border-right: 1px dotted #ccc;
+}
+.contents>.franchise-store>.online-mall li:last-child img{
+    border-right:none;
+}
+.contents>.franchise-store>.online-mall li span{
+    display:block;
+    text-align:center;
+}
+.contents>.franchise-store>.store{
+    float:right;
+}
+.franchise-store{}
+/* .membership */
+/* .contents>.membership>.h-membership{
+    float:left;
+    이거를 contents 안에 div>div에 float:left;를 주면
+    한꺼번에 적용
+} */
+/* .contents>.membership>.h-membership img{
+    width:495px;
+} */
+.contents>.membership>.h-card{
+    float:right;
+}
+/* .contents>.membership>.h-card img{
+    width:495px;
+} */
+.academy-news>div{
+    padding: 20px 0px 20px 0;
+    width:25%;
+}
+.academy-news h2{
+    font-size: 0.98em;
+}
+.academy-news>div>p{
+    padding-top:5px;
+    font-size: 0.93em;
+}
+.academy-news>.news{
+    padding-right:10px;
+    width:210px;
+    position:relative;
+}
+.academy-news>.news li{
+    padding-top:5px;
+    width:180px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    font-size: 0.93em;
+}
+.academy-news>.news li span{
+    position:absolute;
+    right:0;
+}
+.academy-news>.ac-info{
+    text-align:center;
+}
+.academy-news>.ac-info li{
+    float:left;
+    padding:0 12px;
+    border-left: 1px dotted #ccc;
+}
+/* .academy-news>.ac-info>ul>li:first-child{
+    border-left:none;
+} */
+.academy-news>.ac-info>ul>li span{
+    display:block;
+    font-size: 0.93em;
+}
+/* .footer */
+.footer{
+    background:#b60b13;
+}
+.footer>.innerBox{
+    background:#b60b13;
+    text-align:left;
+    width:1000px;
+}
+.footer>.innerBox>.footer_menu{
+    margin-bottom:20px;
+}
+.footer>.innerBox>.footer_menu>li{
+    float:left;
+    margin-top:30px;
+    border-right: 1px solid white;
+    padding-right:10px;
+    line-height:0.7;
+}
+.footer>.innerBox>.footer_menu>li:last-child{
+    border-right:none;
+}
+.footer>.innerBox>.footer_menu>li>a{
+    color:#ddd;
+    font-size:0.95em;
+}
+.footer>.innerBox>address{
+    float:left;
+    margin-bottom:30px;
+}
+.footer>.innerBox>address span{
+    font-size:0.9em;
+    color:#de898e;
+}

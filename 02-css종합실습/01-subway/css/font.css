@@ -1,0 +1,13 @@
+@font-face{
+    font-family: "subway font";
+    /* 이름은 위와 똑같이 써야함 */
+    src:url(../font/Subway-SixInch.woff) format("woff");
+    font-weight:400;
+    /* 기본 */
+}
+@font-face {
+    font-family:"subway font";
+    src:url(../font/Subway-Footlong.woff) format("woff");
+    font-weight:700;
+    /* font 700을 주면 Footlong의 subway폰트가 적용됨 */
+}

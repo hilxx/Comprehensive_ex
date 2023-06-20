@@ -1,0 +1,678 @@
+// 1.변수 선언하기
+$메인컬러: #3f7c8f; //#23afe3;
+$메인글자: #222;
+$설명글자: #777;
+$반응형767: 767px;
+$반응형480: 480px;
+
+// 2.mixin 설정하기
+//flex border button 제목bar 반응형
+@mixin flexLayout($j: space-between, $gap: null, $align: center) {
+    display: flex;
+    justify-content: $j;
+    gap: $gap;
+    align-items: $align;
+}
+
+@mixin myBorder($weight: 1px, $color: null, $bg: null) {
+    border: $weight solid $color;
+    background: $bg;
+}
+
+@mixin titleBar() {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 3px;
+    background: $메인컬러;
+    margin: 30px auto 0;
+}
+
+@mixin respond($size) {
+    @media screen and (max-width:$size) {
+        @content;
+    }
+}
+
+body {
+    @include respond($반응형767) {
+        font-size: 12px;
+    }
+}
+
+.inner {
+    max-width: 1480px;
+    margin: 0 auto;
+    background-color: rgba(255, 0, 0, 0.3);
+
+    @include respond($반응형767) {
+        padding: 0 20px;
+    }
+}
+
+//header
+header {
+    background: #232323;
+
+    .inner {
+        @include flexLayout();
+
+        >div {
+            @include flexLayout($gap: 50px);
+
+            .logo {
+                width: 70px;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            #nav {
+                @include flexLayout();
+
+                @include respond($반응형767) {
+                    display: none;
+                }
+
+                >li {
+                    >a {
+                        display: block;
+                        padding: 0 30px;
+                        line-height: 70px;
+                        // a영역을 크게하기 위해 gap말고 a에 padding으로 주기
+                        //line-height를 줘서 위아래에도 a가 되게!
+                        font-size: 1.35em;
+                        font-weight: bold;
+                        color: white;
+                        transition: 0.3s;
+
+                        &:hover {
+                            color: $메인컬러;
+                        }
+                    }
+
+                    ul {
+                        display: none;
+                        width: 220px;
+                        position: absolute;
+                        background: white;
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+                        transition: 0.3s;
+
+                        li {
+                            position: relative;
+
+                            a {
+                                display: block;
+                                line-height: 45px;
+                                padding: 0 30px;
+                                font-size: 1.2em;
+                                transition: 0.3s;
+
+                                &:hover {
+                                    background: $메인컬러;
+                                    color: white;
+                                }
+                            }
+                        }
+
+                        &.right {
+                            position: absolute;
+                            left: 220px;
+                            top: 70px;
+                            background: #eee;
+                        }
+                    }
+
+                    &:hover {
+                        ul {
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            &.gnb-wrap {
+                font-size: 1.2em;
+
+                @include respond($반응형767) {
+                    display: none;
+                }
+
+                ul {
+                    @include flexLayout($gap: 20px);
+
+                    li {
+                        a {
+                            color: #ccc;
+                        }
+                    }
+                }
+
+                form {
+                    .zoom {
+                        display: block;
+                        width: 30px;
+                        height: 30px;
+                        background: white url(../images/icon_search_search.png) no-repeat center center;
+                        background-size: 60%;
+                        border-radius: 50%;
+                    }
+
+                    .form-inner {
+                        display: none;
+                    }
+                }
+
+                .sponser {
+                    a {
+                        display: block;
+                        @include myBorder(1px, $메인컬러, $메인컬러);
+                        color: white;
+                        padding: 10px 40px;
+                        transition: 0.3s;
+
+                        &:hover {
+                            @include myBorder(1px, white, transparent);
+                        }
+                    }
+                }
+            }
+        }
+
+        .ham-btn {
+            display: none;
+
+            @include respond($반응형767) {
+                display: block;
+            }
+        }
+    }
+}
+
+//#container
+#container {
+
+    // display: none;
+    #main-banner {
+        display: none;
+    }
+
+    main {
+
+        //공통 사항
+        section {
+            margin: 80px 0;
+
+            .title {
+                text-align: center;
+                font-size: 3.5em;
+            }
+
+            .title::after {
+                @include titleBar();
+            }
+
+            .sub {
+                text-align: center;
+                font-size: 1.45em;
+                margin: 30px 0 50px;
+            }
+
+            ul {
+                @include flexLayout($gap: 20px);
+
+                li {
+                    flex: 1;
+
+                    div {
+                        &.img-box {
+                            img {
+                                width: 100%;
+                            }
+                        }
+
+                        &.text-box {}
+                    }
+                }
+            }
+
+            // 각각
+            &.news-wrap {}
+
+            &.sponser-wrap {
+                @include flexLayout($j: center);
+                flex-direction: column;
+                // 너비 높이 주고 배경그림 주기
+                width: 100%;
+                height: 400px;
+                text-align: center;
+                color: white;
+                background: url(../images/main_support_pic.png) no-repeat center;
+
+                span {
+                    font-size: 2em;
+                }
+
+                strong {
+                    display: block;
+                    font-size: 3.8em;
+                }
+
+                .more-btn {
+                    a {
+                        display: inline-block;
+                        @include myBorder(1px, #ccc, #222);
+                        color: white;
+                        font-size: 1.35em;
+                        padding: 15px 70px;
+                        margin-top: 30px;
+                        transition:0.3s;
+                    }
+                }
+                .more-btn:hover{
+                    a{
+                        @include myBorder(1px,$메인컬러,$메인컬러);
+                    }
+                }
+            }
+
+            &.wwf-wrap {
+                .wwf-list {
+                    margin: 0 50px;
+                    position: relative;
+
+                    div {
+                        .wwf-slider {
+                            @include respond(1900px){
+                                width:140%;
+                            }
+                            @include respond($반응형767){
+                                width:300%;
+                            }
+                            @include respond($반응형480){
+                                width:500%;
+                            }
+                            // width:600%;
+                            li {
+                                // @include myBorder(10px,transparent);
+                                // 테두리가 투명으로 있고 호버했을 때 줘야 흔들리지 않음
+                                // width: calc(100% / 6);
+                                position: relative;
+                                // transition: 0.3s;
+                                overflow: hidden;
+                                &::after{
+                                    content:"";
+                                    display:block;
+                                    width:100%;
+                                    height:100%;
+                                    position:absolute;
+                                    top:0;
+                                    left:0;
+                                    @include myBorder(10px,$메인컬러);
+                                    box-sizing:border-box;
+                                    opacity:0;
+                                    transition: 0.3s;
+                                }
+
+                                a {
+                                    >div {
+                                        &.img-box {
+                                            // overflow: hidden;
+                                            img {
+                                                transition: 0.3s;
+                                            }
+                                        }
+
+                                        // &.img-box:hover {
+                                        //     img {
+                                        //         transform: scale(1.5);
+                                        //     }
+                                        // }
+
+                                        &.text-box {
+                                            position: absolute;
+                                            bottom: 10px;
+                                            left: 10px;
+                                            color: white;
+                                            transition: 0.3s;
+
+                                            strong {
+                                                font-size: 2em;
+                                            }
+
+                                            p {
+                                                font-size: 1.5em;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &:hover {
+                                    // @include myBorder(10px,$메인컬러);
+                                    // outline: 10px solid  $메인컬러;
+                                    // border대신 outline으로 줘도 됨!
+                                    // box-sizing:border-box;
+                                    img {
+                                        transform: scale(1.3);
+                                    }
+                                    .text-box {
+                                        color: $메인컬러;
+                                    }
+                                }
+                                &:hover::after{
+                                    opacity:1;
+                                }
+                            }
+                        }
+                    }
+
+                    .arrow {
+                        li {
+                            text-indent: -999999px;
+
+                            a {
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                display: block;
+                                width: 70px;
+                                height: 70px;
+                                background-color: $메인컬러;
+                                border-radius: 50%;
+                                background-repeat: no-repeat;
+                                background-size: 20px;
+                                background-position: center;
+                            }
+
+                            &.left-arrow {
+                                a {
+                                    left: -30px;
+                                    background-image: url(../images/main_exer_prev.png);
+                                }
+                            }
+
+                            &.right-arrow {
+                                a {
+                                    right: -30px;
+                                    background-image: url(../images/main_exer_next.png);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.campaign-wrap {
+                margin: 0 50px;
+                .campaign-list{
+                    align-items:start;
+                    margin: 50px 0;
+                    // center로 줬었기 때문에 들쑥날쑥했음
+                    @include respond($반응형767){
+                        width:250%;
+                    }
+                    @include respond($반응형480){
+                        width:350%;
+                    }
+                    // 반응형 할 때 부모의 너비 건들이기
+                    li{
+                        // overflow:hidden;
+                        .img-box{
+                            position:relative;
+                            overflow:hidden;
+                            img{
+                                transition:0.3s;
+                            }
+
+                            &.img-box::after{
+                                content:"";
+                                display:block;
+                                width:100%;
+                                height:100%;
+                                position:absolute;
+                                top:0;
+                                left:0;
+                                @include myBorder(10px,$메인컬러);
+                                box-sizing:border-box;
+                                opacity:0;
+                                transition: 0.3s;
+                            }
+                        }
+                        .text-box{
+                            font-weight:300;
+                            .text-title{
+                                display:inline-block;
+                                font-size:1.7em;
+                                color:white;
+                                background:black;
+                                // position:absolute;
+                                // absolute말고 relative주기!!
+                                position:relative;
+                                top:-15px;
+                                left:10px;
+                                z-index:1;
+                                padding:5px 15px;
+                                line-height:1.2;
+                                transition:0.3s;
+                            }
+                            p{
+                                font-size:1.2em;
+                                padding:0 20px;
+                                overflow:hidden;
+                                text-overflow: ellipsis;
+                                word-wrap: break-word;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                            }
+                        }
+                        &:hover{
+                            .img-box::after{
+                                opacity:1;
+                            }
+                            .img-box{
+                                img{
+                                    transform:scale(1.2);
+                                }
+                            }
+                            .text-title{
+                                background:$메인컬러;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//footer
+footer {
+    border-top: 1px solid #ccc;
+    padding-top: 80px;
+
+    // display:none;
+    .inner {
+        >div {
+            @include flexLayout();
+
+            &.foot-top {
+                .sitemap {
+                    flex: 1;
+
+                    @include respond($반응형767) {
+                        display: none;
+                    }
+                }
+
+                .site-list {
+                    @include flexLayout($align: start);
+                    flex-wrap: wrap;
+                    border-right: 2px solid $메인컬러;
+
+                    >li {
+                        width: 33%;
+                        line-height: 2;
+                        margin-bottom: 30px;
+
+                        span {
+                            font-size: 1.3em;
+                            display: block;
+                            margin-bottom: 15px;
+                        }
+
+                        >div {
+                            @include flexLayout($j: start, $gap: 50px, $align: start);
+                        }
+                    }
+                }
+
+                .news-letter {
+                    padding-left: 40px;
+
+                    @include respond($반응형767) {
+                        padding-left: 0;
+                    }
+
+                    .newsletter-title {
+                        strong {
+                            font-size: 2em;
+                        }
+
+                        p {
+                            font-size: 1.2em;
+                            margin: 30px 0 80px 0;
+                            max-width: 380px;
+
+                            @include respond($반응형767) {
+                                max-width: 100%;
+                            }
+                        }
+                    }
+
+                    .email-wrap {
+                        #email {
+                            display: block;
+                            width: 100%;
+                            line-height: 40px;
+                            @include myBorder(0, #ccc, #ccc);
+                        }
+
+                        button {
+                            display: block;
+                            width: 100%;
+                            line-height: 40px;
+                            @include myBorder(0, #333, #333);
+                            color: white;
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+
+            &.foot-link {
+                border-bottom: 2px solid black;
+                padding: 15px 0 20px;
+                margin: 70px 0 40px;
+
+                @include respond($반응형767) {
+                    border-top: 1px solid #ccc;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                >div {
+                    @include flexLayout($gap: 20px);
+
+                    @include respond($반응형767) {
+                        width: 100%;
+                        justify-content: center;
+                        margin-bottom: 10px;
+                    }
+
+                    ul {
+                        @include flexLayout(center, 10px);
+
+                        li {
+                            position: relative;
+                            padding-right: 15px;
+
+                            img {
+                                height: 16px;
+                            }
+                        }
+
+                        &.util-list {
+                            li::after {
+                                content: "";
+                                display: block;
+                                width: 1px;
+                                height: 10px;
+                                background: #ccc;
+                                position: absolute;
+                                right: 0;
+                                top: 50%;
+                                transform: translateY(-50%);
+                            }
+
+                            li:last-child::after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.foot-bottom {
+                justify-content: start;
+
+                @include respond($반응형767) {
+                    display: block;
+                    text-align: center;
+                }
+
+                .foot-logo {
+                    width: 60px;
+                    margin-right: 40px;
+
+                    @include respond($반응형767) {
+                        margin: 0 auto;
+                        // width가 있을 때만 auto가능!
+                    }
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .foot-info {
+                    .company {
+                        font-size: 1.5em;
+                    }
+
+                    address {
+                        p {
+                            display: inline-block;
+                            margin-right: 20px;
+                            line-height: 1.5;
+
+                            @include respond($반응형767) {
+                                display: block;
+                                margin: 0;
+                            }
+
+                            strong {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+
+                    .copy {
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

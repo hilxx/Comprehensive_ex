@@ -1,0 +1,139 @@
+/* mobile */
+@media screen and (max-width:767px){
+    /* 1.제거하기 */
+    .gnb>li:first-child,
+    .gnb>li:nth-child(2),
+    .arrow-btn,
+    .scroll-ani,
+    .partner-wrap,
+    .award-wrap,
+    .footer-top{
+        display:none;
+    }
+    /* 2.보여주기 */
+    .pager{
+        display:block;
+        position:absolute;
+        bottom:25px;
+        left:50%;
+        transform: translateX(-50%);
+    }
+    .pager>li{
+        float:left;
+        margin: 0 5px;
+    }
+    .pager>li>a{
+        display:block;
+        width:13px;
+        height:13px;
+        background:rgba(255,255,255,0.6);
+        border-radius: 50%;
+    }
+    .pager>.avtive>a{
+        background:rgba(255,255,255,1);
+        /* 나중에 script 배우면 쓸 수 있게 */
+    }
+    /* 3.글자 크기 */
+    body{
+        font-size:12px;
+    }
+    /* 4.100% 만들기 */
+    .inner{
+        padding: 0 20px;
+    }
+    
+    /* header */
+    .header-inner{
+        height:80px;
+        padding: 0 20px;
+    }
+    .logo{
+        width:95px;
+    }
+    /* #container */
+    .mainBanner{
+        height:500px;
+        overflow:hidden;
+        position:relative;
+    }
+    .banner>li::after{
+        background-size: 85%;
+    }
+    .banner>.banner2::after{
+        background-position-x:200%;
+    }
+    .banner>.banner3::after{
+        background-position:150% 90%, 150% bottom;
+    }
+    .banner>li>.inner{
+        width:calc(100% - 40px);
+        padding-left:20px;
+    }
+    .banner>li>.inner h2{
+        font-size: 2.5em;
+    }
+    main section{
+        padding: 40px 0;
+    }
+    main .title{
+        font-size: 2em;
+    }
+    main section ul{
+        display:block;
+    }
+    main section ul>li{
+        width:100% !important;
+    }
+    .service-list>li{
+        margin-bottom: 20px;
+    }
+    .service-list>li>a{
+        height: 95vw;
+        /* calc(100vw - 40px) */
+        /* 가로 세로 비율이 정사각형으로 나옴 */
+        /* vw는 viewport 안에 보이는 너비를 95%로 하겠다*/
+        /* %를 안주는 이유는 pc버전에서 부모에게 95%를 준 상태에서
+        반응형에서 100%를 주면 95%로 적용되기 때문! */
+    }
+    .service-list>li>a .text-box{
+        display:block;
+        padding: 30px 20px;
+    }
+    .portfolio-list>li{
+        margin-bottom:40px;
+    }
+    /* footer */
+    .footer-bottom>.inner{
+        display:block;
+        /* flex를 취소해줌 */
+    }
+    .priv{
+        justify-content: center;
+    }
+    .address{
+        display:block;
+    }
+    .address>div{
+        width:100% !important;
+        overflow:hidden;
+    }
+    /* .address>div>strong{
+        width:100px !important;
+    } */
+    .address>div>strong,
+    .address>div:nth-child(2n)>strong{
+        width:100px;
+    }
+    .address>div>span{
+        display:block;
+        width:calc(100% - 100px);
+        /* 전체 사이즈 - strong에 준 값 빼면 주소도 들어감 */
+    }
+    .link{
+        justify-content: center;
+        margin: 20px 0 40px;
+    }
+    .foot-link{
+        text-align:center;
+    }
+}

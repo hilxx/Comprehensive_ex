@@ -1,0 +1,457 @@
+.innerBox{
+    max-width:1170px;
+    margin: 0 auto;
+    /* background-color:rgba(255,0,0,0.2); */
+    /* background-color는 나중에 주석처리
+    진짜 배경색 들어가는 건 background라고 씀 */
+    position:relative;
+}
+/* #header */
+#header{
+    border-top: 5px solid #009223;
+    text-align:center;
+     /* 가운데 정렬  */
+     padding-top: 30px;
+}
+.gnb{
+    position:absolute;
+    /* 로고가 다 차지하고 있으니까(중앙) position을 씀
+    logo가 왼쪽에 있을 때는 오른쪽에 float으로 주기 */
+    right:0;
+    top:5px;
+}
+.gnb>li{
+    float:left;
+    margin-left:15px;
+    line-height:30px;
+    /* (이미지와 가운데 정렬이 되도록) */
+    position:relative;
+}
+.gnb>li:first-child{
+    padding-right:15px;
+}
+.gnb>li:first-child::after{
+    content:"";
+    display:block;
+    width:2px;
+    height:2px;
+    background: #999;
+    position:absolute;
+    /* 부모는 li */
+    right:0;
+    top:50%;
+}
+.navWrap{}
+.navWrap #nav{
+    /* display:inline-block; */
+    /* 메뉴가 가운데로 옴 why?
+    inline-block은 inline이라
+    부모한테 text-align:center를 주면 가운데로 가는 것*/
+    /* inline-block을 줘서 중간에 뜸 */
+    padding: 0 80px;
+    box-sizing: border-box;
+    /* 1170안에 80px도 포함된다는 명령어 */
+}
+.navWrap #nav:hover .depth1{
+    display:block;
+    /* #nav 어디에든 hover하면 depth1메뉴가 나오게 하기
+    #nav>li>a에 하는 게 아님 */
+}
+.navWrap #nav>li{
+    float:left;
+    /* inline-block x */
+    padding: 20px 50px;
+    /* border:1px solid black; */
+    /* nav영역 구분하기 위한 임시 */
+    position:relative;
+}
+#nav>li>a{
+    font-size:1.38em;
+    /* px은 고정사이즈, em은 기준사이즈에 비례하므로 반응형에서 좋음 */
+    font-weight:700;
+    color:#292929;
+}
+#nav>li:hover>a{
+    color:#009223;
+    /* #nav>li>a:hover에 색을 주면 마우스를 내렸을 때 색이 다시 
+    검정으로 변함 li에 주면 마우스를 내려도 색이 바뀌지 않는다. */
+}
+.depth1{
+    display:none;
+    position:absolute;
+    /* 겹쳐야 한다=position// 옆에 붙어야 한다=float */
+    background-color:#eee;
+    width:100%;
+    left:0;
+    top:65px;
+    padding-top:20px;
+    height:250px;
+    line-height:2.4;
+    z-index:10;
+    /* 나중에 마크업된 banner에 postion을 줬기 때문에 처음에 position 준
+    depth가 안 보임 -> z-index줘서 위로 올리기 */
+}
+.depth1 a{
+    font-size:1.2em;
+}
+.depth1 a:hover{
+    color:#009223;
+    text-decoration:underline;
+}
+/* #container */
+#container{}
+.mainBanner{
+    overflow:hidden;
+    position:relative;
+}
+.banner{
+    width:400%
+}
+.banner>li{
+    float:left;
+    /* common으로 준 .clearFix::after가 있으므로 .class명 주기 */
+    /* 부모의 너비가 자식만큼 크지않아서 사진이 안 올라감.
+    부모의 너비를 넓혀줘야함 (기본 100%이므로 4배 해주기) */
+    width:25%
+    /* (100%의 4개가 하나씩 들어가야하므로) */
+}
+.banner>li img{
+    width:100%
+    /* 이미지가 꽉 차야하므로! */
+}
+.pager{
+    position:absolute;
+    bottom:50px;
+    left:50%;
+    margin-left:300px;
+    /* 일단 강제로 옮김. 
+    원래는 이너박스를 줘서 오른쪽에 딱 붙일 수 있다.*/
+}
+.pager>li{
+    float:left;
+    margin: 0 10px;
+}
+.pager>li>a{
+    display:block;
+    width:10px;
+    height:10px;
+    background:white;
+    border-radius:10px;
+}
+.pager>.active>a{
+    width:30px;
+    background: #ffce32;
+    /* 첫번째 li에 class=active주기 */
+}
+.contents{}
+.store-franchise{
+    /* clearFix주기 */
+    /* position:absolute 대신 float사용해보기 */
+    float:right;
+    /* innerbox에 clearFix 주기 */
+    margin-top:-30px;
+    /* -값 주는 것 비추천하지만 position해도 -값 줘야함 */
+}
+.store-franchise>div{
+    float:left;
+    /* (옆으로 붙게하기 위해) */
+}
+.store-franchise>div>a{
+    /* a에 너비 높이를 줘야 앵커 영역이 그만큼 측정됨 */
+    display:block;
+    width:300px;
+    height:80px;
+    line-height:80px;
+    font-size:1.69em;
+    font-weight:700;
+}
+.store-franchise>.store>a{
+    background:#ffce32 url(../images/icon_map.png) no-repeat;
+    background-position: 90px center;
+    border-radius:30px 0 0 0;
+    color:#292929;
+    text-indent: 130px;
+}
+.store-franchise>.franchise>a{
+    background:#009223 url(../images/icon_franchise.png) no-repeat;
+    background-position:55px center;
+    border-radius: 0 0 30px 0;
+    color:white;
+    text-indent:95px;
+}
+
+/* .subway-menu */
+.subway-menu{
+    position:relative;
+}
+.subway-menu .title{
+    font-family:"subway font";
+    font-weight:700;
+    font-size:3.08em;
+    background:url(../images/bul_tit.png) no-repeat;
+    /* 그림 크기가 60px이라서 그림이 짤리므로 line-height주기 */
+    line-height:60px;
+    /* text-indent:25px;이나 padding으로 띄우기 */
+    padding-left:25px;
+}
+.subway-menu>.menu-tab{
+    position:absolute;
+    top:30px;
+    right:0;
+}
+.subway-menu>.menu-tab>li{
+    float:left;
+    margin-left:30px;
+    padding-left:30px;
+    border-left: 1px solid #bbb;
+    line-height:0.8;
+}
+.subway-menu>.menu-tab>li>a{
+    font-size:1.25em;
+    font-weight: 500;
+}
+.subway-menu>.menu-tab>li:first-child{
+    border-left:none;
+}
+.subway-menu>.menu-tab>li:first-child>a{
+    color:#009223;
+}
+/* .active에 줘도 됨 */
+.listWrap{
+    /* background-color:bisque; */
+    margin:50px 0;
+}
+.listWrap .list{
+    overflow:hidden;
+}
+.menu-classic-list{
+    /* width:250%; */
+    /* 색칠한 영역 안에 2개의 사진 들어감 */
+    /* width:166.6666% */
+    /* 색칠한 영역 안에 3개 */
+    width:125%;
+    /* 공식: 100% * 자식의 갯수/보여줄 갯수 */
+}
+.menu-classic-list>li{
+    float:left;
+    /* 부모가 얘네를 다 담을 수가 없어서 붙일 수가 없으므로
+    자식의 사이즈를 줄여야함 */
+    width:20%;
+    text-align:center;
+    position:relative;
+    /* transform 명령어로 가운데로 보낼 수 있음 */
+}
+.menu-classic-list>li:hover::after{
+    content:"";
+    display:block;
+    width:98px;
+    height:98px;
+    background:url(../images/btn_more.png);
+    position:absolute;
+    top:50%;
+    left:35%;
+}
+.menu-classic-list>li img{
+    width:90%;
+}
+.menu-classic-list>li strong{
+    display:block;
+    /* block을 준 이유는 margin을 주기 위해서
+    block이 아닐 땐 margin의 위아래가 제대로 적용이 안 될 수 o */
+    font-size:1.28em;
+    margin:15px 0;
+    color:#292929;
+}
+.arrow>li>a{
+    display:block;
+    width:50px;
+    height:50px;
+    background-image:url(../images/icon_event_slider_arr.png);
+    text-indent:-9999px;
+    position:absolute;
+    top:50%;
+}
+.arrow>li:first-child>a{
+    left:-50px;
+    /* innnerBox 바깥으로 화살표가 나감 */
+}
+.arrow>li:first-child>a:hover{
+    background-position: 0 -50px;
+}
+.arrow>li:last-child>a{
+    background-position: -50px 0;
+    right:-50px;
+}
+.arrow>li:last-child>a:hover{
+    background-position: -50px -50px;
+}
+
+/* .subway-info */
+.subway-info{
+    background:url(../images/bg_content.gif);
+}
+.subway-info>.innerBox{
+    max-width:1280px;
+    padding-left:55px;
+    box-sizing:border-box;
+}
+.subway-info>.innerBox>div{
+    float:left;
+    height:300px;
+    padding: 35px;
+    box-sizing:border-box;
+    /* 300px사이즈 안에 padding값 추가 적용되게 하는 것 */
+    position:relative;
+    margin-bottom:50px;
+}
+.subway-info>.innerBox>.info-use{
+    width:400px;
+    background:url(../images/bg_utilization.png);
+}
+.subway-info>.innerBox>.info-history{
+    width:825px;
+    background:url(../images/img_subway_history.png);
+    padding-left: 410px;
+}
+.subway-info>.innerBox>.info-news{
+    background:white;
+    width:870px;
+    border-radius: 30px 0 30px 0;
+}
+.subway-info>.innerBox>.info-tv{
+    padding:0;
+    margin-left:30px;
+    border-radius:30px 0 30px 0;
+    overflow:hidden;
+}
+.subway-info>.innerBox>.info-news .title{
+    color:#292929;
+    line-height:60px;
+    background:url(../images/bul_tit.png) no-repeat;
+    padding-left:25px;
+}
+.subway-info>.innerBox>.info-news>div{
+    float:left;
+    margin: 20px 25px;
+    line-height:2;
+}
+.subway-info>.innerBox>.info-news ul{
+    line-height:3;
+    font-size:1.2em;
+}
+.subway-info>.innerBox h3{
+    font-size:2.3em;
+    color:white;
+}
+.subway-info>.innerBox .more-btn>a{
+    border: 2px solid white;
+    display:inline-block;
+    padding:7px 20px;
+    border-radius:30px;
+    color:white;
+    font-size:1.2em;
+    /* div에 relative 주기 */
+    position:absolute;
+    bottom:42px;
+}
+/* .quick-menu */
+.quick-menu{
+    padding: 40px 0;
+}
+.quick-menu>ul{
+    /* ul에 clearFix주기 */
+}
+.quick-menu>ul>li{
+    float:left;
+    margin-left:80px;
+}
+.quick-menu>ul>li>a{
+    display:block;
+    /* block 왜 준 거지?? */
+}
+.quick-menu>ul>li>a>.icon{
+    width:70px;
+    height:70px;
+    background:url(../images/icon_quickmenu.png);
+    position:absolute;
+}
+.quick-menu>ul>li:nth-child(2)>a>.icon{
+    background-position: -70px 0;
+}
+.quick-menu>ul>li:nth-child(3)>a>.icon{
+    background-position: -140px 0;
+}
+.quick-menu>ul>li:nth-child(4)>a>.icon{
+    background-position: -210px 0;
+}
+.quick-menu>ul>li>a>strong{
+    display:block;
+    /* span과 줄바꿈을 위해 씀 */
+    color:#292929;
+    font-size:1.38em;
+    padding-left:90px;
+    padding-top:10px;
+    margin-bottom:5px;
+}
+.quick-menu>ul>li>a>span{
+    padding-left:90px;
+}
+/* #footer */
+#footer{
+    background:#292929;
+    color: #666;
+    padding:20px 0;
+    position:relative;
+}
+/* 선 넣기 */
+#footer::before{
+    content:"";
+    display:block;
+    width:100%;
+    height:1px;
+    background:#666;
+    position:absolute;
+    top:60px;
+}
+.footer_menu>li{
+    float:left;
+    margin-right:20px;
+    line-height:2;
+}
+.footer_menu>li:nth-child(2)>a{
+    color:#bbb;
+    font-weight: 700;
+}
+/* weight가 적용이 안 됨. */
+/* .footer_menu>li strong{
+    font-weight:700;
+} */
+#footer address{
+    float:left;
+    margin-top: 30px;
+    line-height:1.8;
+}
+#footer .sns{
+    margin-top:30px;
+    float:right;
+}
+#footer .sns>li{
+    float:left;
+    /* 옆으로 정렬하기 위해서 li에도 float을 줌 */
+    margin-left:20px;
+}
+#footer .sns li>a{
+    display:block;
+    width:50px;
+    height:50px;
+    text-indent:-9999px;
+}
+#footer .sns>li>a:hover{
+    background-position:-50px 0;
+}
+#footer .sns>li:first-child>a{
+    background-image:url(../images/icon_sns_instar.png);
+}
+#footer .sns>li:last-child>a{
+    background-image:url(../images/icon_sns_facebook.png);
+}

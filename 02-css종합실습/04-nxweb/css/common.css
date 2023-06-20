@@ -1,0 +1,62 @@
+/* 여백제거 */
+*{
+    margin:0;
+    padding:0;
+    /* *보다 요소 하나씩 하나씩 다 써주는 게 좋음 */
+    box-sizing:border-box;
+}
+/* list 장식제거 */
+li{
+    list-style:none;
+}
+/* a 밑줄제거, 색상 */
+a{
+    text-decoration:none;
+    color:#333;
+}
+/* img 정렬 */
+img, input{
+    vertical-align:middle;
+}
+/* input과 button은 나중에 추가하기 */
+/* input 요소 정렬 */
+/* button은 앵커 커서가 아니므로 설정해놓기 */
+/* .blind */
+.blind{
+    position:absolute;
+    top:-99999px;
+    /* 절대 display:none;쓰면 안 됨. 리더기에 읽혀야 하기 때문에! */
+}
+/* 기울기 address,i,em */
+address,i,em{
+    font-style:normal;
+}
+/*  table */
+table,th,td{
+    border-collapse: collapse;
+}
+/* .clearFix */
+.clearFix::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+/* body */
+body{
+    font-family:"Noto Sans KR", sans-serif;
+    font-size:14px;
+    letter-spacing:-0.1px;
+}
+/* .skip (tab키)*/
+.skip a{
+    position:absolute;
+    top:-999px;
+    width:100%;
+    height:50px;
+    text-align:center;
+    background:black;
+    color:white;
+}
+.skip a:focus{
+    top:0;
+}

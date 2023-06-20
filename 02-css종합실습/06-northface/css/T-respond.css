@@ -1,0 +1,310 @@
+/* mobile 쌤하고 같이 한 것 */
+@media screen and (max-width:767px){
+    /* 1. 제거하기 */
+    #nav>li:nth-child(4),
+    #nav>li:hover::after,
+    .gnb>li:first-child,
+    .gnb>li:nth-child(2),
+    .gnb span,
+    .banner .text-box>p,
+    .banner .text-box>.more-btn,
+    .arrow, .tech-arrow,
+    .search-wrap span,
+    .foot-top
+    {
+        display:none;
+    }
+    /* 2. 보이기 */
+    .ham-btn,
+    .mo-moreBtn{
+        display:block;
+    }
+    /* 3. 글자크기 */
+    body{
+        font-size:12px;
+    }
+    /* 4. 100% 만들기 */
+    .new-arrivals{
+        overflow:hidden;
+    }
+    /* header */
+    header{
+        /* style에서 라인하르트 준 사람들은
+        line-height: 1; 로 초기화 시키기
+        나는 height준 거 auto 주고 다시 높이 잡기 */
+        height:auto;
+        border-bottom:none;
+    }
+    header>.inner{
+        padding: 0 15px;
+    }
+    .logo{
+        float:none;
+        /* nav가 밑으로 내려감 */
+        width:70px;
+        /* padding-top:10px; */
+        margin: 10px 0;
+    }
+    nav{
+        float:none;
+        padding: 0 0;
+        /* line-height:40px; */
+        border-top: 1px solid #ccc;
+        /*  */
+        margin-left:0;
+    }
+    #nav{
+        /*  */
+        height:auto;
+        gap:0;
+        justify-content: space-around;
+    }
+    #nav>li>a{
+        line-height:50px;
+    }
+    .gnb-wrap{
+        position:absolute;
+        right:15px;
+        top:20px;
+        display:flex;
+        /*  */
+        gap:15px;
+        height:auto;
+    }
+    .search-wrap p{
+        position:relative;
+    }
+    .search-wrap p>img{
+        margin-right:0;
+        transform:scaleX(-1);
+    }
+    .ham-btn{
+        width:24px;
+        /* svg는 부모사이즈에 따라 보여지기 때문에
+        부모한테 사이즈를 줘야 나타난다. */
+    }
+    /* #container */
+    .banner .text-box{
+        bottom:0;
+        left:50%;
+        transform:translate(-50%, 30%);
+
+    }
+    .banner .text-box>h2{
+        font-size:3em;
+    }
+    .banner li{
+        overflow:hidden;
+    }
+    .banner img{
+        width:250%;
+        position:relative;
+        /* left:50%; */
+        transform: translateX(-50%);
+    }
+    main section{
+        margin-top:70px;
+    }
+    main section .title{
+        font-size:2em;
+    }
+    .item-wrap{
+        margin: 0 0;
+    }
+    .item-wrap>.item-list{
+        width:230%;
+        margin-top:auto;
+    }
+    /* bag-wrap */
+    .bag-wrap>div{
+        flex-wrap:wrap;
+        overflow:hidden;    
+        position:relative;
+    }
+    .backpack-left{
+        width:100%;
+    }
+    .backpack-left .more-btn{
+        display:none;
+    }
+    .mo-moreBtn{
+        border: 1px solid black;
+        /* position:absolute; */
+        width:95%;
+        height:50px;
+        /* top:0;
+        left:50%;
+        transform: translateX(-50%); */
+        line-height:50px;
+        margin: 10px auto;
+        cursor:pointer;
+    }
+    .mo-moreBtn>button{
+        border: none;
+        background:none;
+        font-size:1.2em;
+        font-weight:700;
+        transition:0.5s;
+    }
+    .mo-moreBtn>button:hover{
+        color:#777;
+    }
+    .backpack-middle{
+        flex:none;
+        width:50%;
+    }
+    .hot-keyword>.hash-tag{
+        margin: 30px 0 30px;
+        row-gap: 10px;
+    }
+    .hot-keyword>.hash-tag a{
+        font-size:1.25em;
+    }
+    .hot-keyword>.hash-tag a::before{
+        width:100%;
+        top:10px;
+        left:0;
+        height:50%;
+    }
+    .hot-keyword>.hash-tag a:hover{
+        font-size:1.5em;
+    }
+    .hot-keyword>.kids{
+        display:block;
+    }
+    .kids>div>.text-box{
+        position:static;
+        /* absolute준 거 해제 */
+        color:black;
+        padding: 30px 20px 0;
+    }
+    .kids>div>.text-box>.item-sub{
+        padding:10px 0;
+    }
+    .kids>div>.text-box>.more-btn a{
+        color:black;
+        text-decoration: underline;
+        font-size:1.15em;
+    }
+    .kids>div>.text-box>.more-btn img{
+        display:none;
+    }
+    .kids-sns{
+        flex-wrap:wrap;
+    }
+    .kids-sns>li{
+        flex:none;
+        width:50%;
+    }
+    .tech-wrap{
+        margin-bottom:50px;
+    }
+    .tech-wrap>.tech-list{
+        overflow:hidden;
+        /* width:250%;
+        gap:10px; */
+        /* div로 한번더 감싸고 위에 했던 것처럼!
+        li크기 말고 부모 크기 늘리기!!!!!!! */
+    }
+    .tech-wrap>.tech-list>li{
+        flex:none;
+        width:80%;
+        margin:0 10px;
+    }
+    .tech-wrap>.tech-list .text-box{
+        margin: 10px 0 30px;
+        text-align:start;
+    }
+    .tech-wrap>.tech-list .text-box .tech-title{
+        font-size:1.6em;
+        margin:20px 0;
+    }
+    .foot-content{
+        width:auto;
+        /* display:block; */
+        justify-content: center;
+        display:block;
+    }
+    .left-box{
+        text-align:center;
+        /* padding: 30px; */
+        width:100%;
+    }
+    .left-box address span{
+        display:inline-block;
+    }
+    .left-box address span::after{
+        display:none;
+    }
+    .foot-outer{
+        color:white;
+        font-size:1.25em;
+        display:block;
+        width:100%;
+        padding-bottom:10px;
+    }
+    .left-box .business a{
+        color:#9b9b9b;
+    }
+    .right-box{
+        padding:0 0 50px;
+    }
+    .right-box>ul{
+        justify-content: center;
+        gap:30px;
+    }
+    .right-box li{
+        width: 50px;
+    }
+}
+@media screen and (max-width:480px){
+    /* 1. 제거하기 */
+    /* 2. 보여주기 */
+    /* 3. 글자크기 */
+    /* 4. 100% 만들기 */
+    .banner img{
+        width:350%;
+    }
+    .banner .text-box{
+        width:100%;
+        bottom:0;
+        text-align:center;
+    }
+    .mainBanner>.pager {
+        bottom:7%;
+    }
+    .item-wrap>.item-list{
+        margin: 0 10px;
+    }
+    .item-wrap>.item-list .text-box>p{
+        margin-bottom:20px;
+    }
+    .cost{
+        /* font-size: 0.9em; */
+        gap:5px;
+        flex-wrap:wrap;
+    }
+    .cost .grey{
+        width:100%;
+    }
+    .backpack-middle>.text-box{
+        bottom:20px;
+        left:10px;
+    }
+    .backpack-middle>.text-box .cost .grey{
+        width:auto;
+    }
+    .backpack-right>.text-box{
+        top:20px;
+        right:10px;
+    }
+    .hot-keyword>.hash-tag{
+        gap:20px;
+    }
+    .kids>div{
+        margin-top:30px;
+    }
+    .foot-bottom{
+        font-size:1em;
+    }
+}

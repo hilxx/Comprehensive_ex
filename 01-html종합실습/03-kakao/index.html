@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- head안에 쓰기 -->
+    <title>카카오</title>
+    <link rel="icon" href="./images/favicon.ico">
+</head>
+
+<body>
+    <!-- header -->
+    <!-- div#header는 옛날 방식. header라는 태그가 생김 -->
+    <header>
+        <!-- logo, top menu, mainmenu -->
+        <div class="innerBox">
+            <h1 class="logo"><a href="index.html"><img src="images/logo.svg" alt="kakaoLogo"></a></h1>
+            <!-- 최근에는 외부를 연결할 때 a를 쓰고,
+                 스크립트 또는 프로그램을 통해서 버튼 기능을 사용할 때 button을 사용한다. -->
+            <!-- nav라는 태그가 생김. 젤 중요한 로고는 h1으로 쓰기. 그 다음 중요순으로 h2~-->
+            <nav>
+                <h2 class="blind">메인메뉴</h2>
+                <!-- 이름이 blind인 애들은 홈페이지에서 안 보임 -->
+                <!-- ul.nav_list>li*4>a[href="#void"] -->
+                <ul class="nav_list">
+                    <li><a href="#void">카카오</a></li>
+                    <li><a href="#void">뉴스</a></li>
+                    <li><a href="#void">기술과 서비스</a></li>
+                    <li><a href="#void">약속과 책임</a></li>
+                </ul>
+            </nav>
+            <ul class="gnb">
+                <li><a href="#void">search<img src="./images/ico-search.svg" alt="search"></a></li>
+                <li><a href="#void">language<img src="./images/ico-lang.svg" alt="language"></a></li>
+                <li><a href="#void">mode<img src="./images/ico-moon.svg" alt="mode-dark"></a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- container main-->
+    <main>
+        <!-- section article에는 h2~6가 꼭 들어가야함 -->
+        <section class="today_kakao-header">
+            <div class="innerBox">
+                <h2><img src="./images/5.png" alt="오늘의 날짜"><span>오늘의 카카오</span></h2>
+                <!-- 제목이 같이 보이므로 blind 명령어 안 줘도 됨! -->
+            </div>
+        </section>
+        <section class="contents innerBox">
+            <h2><img src="./images/ico_date5.gif" alt="오늘의 날짜"><span>오늘의 카카오</span></h2>
+            <p class="today">12월5일 월요일 소식입니다.</p>
+            <!-- div나 section으로 영역 4개 나눠주기 -->
+            <div class="kakao_news1">
+                <!-- 큰 뉴스: news_item_card news_item_big / 작은 뉴스들: news_wrap -->
+                <div class="news_item_card news_item_big">
+                    <!-- div.text_box+div.img_box -->
+                    <!-- divtext_box+div.img_box 복붙해서 나머지 card 만들기 -->
+                    <div class="text_box">
+                        <p class="card_info">
+                            <!-- webp는 web의 picture라는 약자로 구글에서 만든 것. 크기는 작으면서 화질(?)이 좋은 그런..것 -->
+                            <img src="./images/6562f7bc017800001.webp" alt="speaker">
+                            <span class="cate_title">보도자료</span>
+                            <span class="date">2022.12.05</span>
+                            <a href="#void"><img src="./images/ico-more.svg" alt="더보기"></a>
+                        </p>
+                        <p class="card"><a href="#void">카카오톡 쇼핑하기 '2022 리빙페어'진행</a></p>
+                        <p class="hash">#카카오톡 쇼핑하기 #톡딜 #카카오커머스</p>
+                    </div>
+                    <div class="img_box">
+                        <img src="./images/df994225018400001.webp" alt="living fare">
+                    </div>
+                </div>
+                <div class="news_wrap">
+                    <div class="news_item_card">
+                        <div class="text_box">
+                            <p class="card_info">
+                                <img src="./images/6562f7bc017800001.webp" alt="speaker">
+                                <span class="cate_title">보도자료</span>
+                                <span class="date">2022.12.01</span>
+                                <a href="#void"><img src="./images/ico-more.svg" alt="더보기"></a>
+                            </p>
+                            <p class="card"><a href="#void">'카카오같이가치', 2022년을 빛낸 올해의...</a></p>
+                            <p class="hash">#카카오톡같이가치</p>
+                        </div>
+                        <div class="img_box">
+                            <img src="./images/caf2d402018400001.webp" alt="2022 올해의 모금함">
+                        </div>
+                    </div>
+                    <div class="news_item_card">
+                        <div class="text_box">
+                            <p class="card_info">
+                                <img src="./images/ico_stock.png" alt="stock">
+                                <span class="cate_title">주가정보</span>
+                            </p>
+                            <p class="card"><a href="#void">57,700<span>800</span></a></p>
+                            <p class="hash"><span class="date">2022.12.05 10:11AM</span></p>
+                        </div>
+                    </div>
+                    <div class="news_item_card">
+                        <div class="text_box">
+                            <p class="card_info">
+                                <img src="./images/ico_responsible.png" alt="heart">
+                                <span class="cate_title">약속과 책임</span>
+                            </p>
+                            <p class="card"><a href="#void">카카오는 당신과 함께 더 나은 세상을 만듭니다.</a></p>
+                            <p class="hash">#약속과책임 #esg #소셜임팩트</p>
+                        </div>
+                    </div>
+                    <div class="news_item_card">
+                        <div class="text_box">
+                            <p class="card_info">
+                                <img src="./images/6562f7bc017800001.webp" alt="speaker">
+                                <span class="cate_title">보도자료</span>
+                                <span class="date">2022.11.28</span>
+                                <a href="#void"><img src="./images/ico-more.svg" alt="더보기"></a>
+                            </p>
+                            <p class="card"><a href="#void">카카오메이커스, '제가버치, 프로젝트 누적 거래액...</a></p>
+                            <p class="hash">#카카오메이커스 #제가버치</p>
+                        </div>
+                        <div class="img_box">
+                            <img src="./images/bb7e28c9018400001.webp" alt="누적 거래액">
+                        </div>
+                    </div>
+                    <div class="news_item_card">
+                        <div class="text_box">
+                            <p class="card_info">
+                                <img src="./images/ico_responsible.png" alt="heart">
+                                <span class="cate_title">약속과 책임</span>
+                            </p>
+                            <p class="card"><a href="#void">ESG보고서, 카카오의 약속과 책임</a></p>
+                            <p class="hash">#2021년성과 #ESG보고서</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="kakao_culture">
+                <strong>기술과 사람으로 더 나은 세상을 만듭니다.</strong>
+                <p><a href="#void">카카오문화 바로가기</a></p>
+                <!-- pc_img mobile_img 넣어주기 -->
+                <div class="pc_img"><img src="./images/bg_home_culture_210325.png" alt="kakao's lion to Global"></div>
+                <div class="mobile_img"><img src="./images/bg_home_culture_s_210325.png" alt="kakao's lion to Global">
+                </div>
+            </div>
+            <!-- news1 복붙해서 내용만 바꾸기 -->
+            <div class="kakao_news2">
+                <div class="news_wrap">
+                    <!-- div.new_item_card*4 -->
+                    <div class="new_item_card">
+                        <div class="text_box">
+                            <p class="card_info">
+                                <img src="./images/ico_customer.png" alt="죠르디">
+                                <span class="cate_title">고객센터</span>
+                            </p>
+                            <p class="card_title">어떤 서비스를 도와드릴까요?</p>
+                            <!-- ul>li*3>a[href="#void"] -->
+                            <ul>
+                                <li><a href="#void">카카오</a></li>
+                                <li><a href="#void">다음</a></li>
+                                <li><a href="#void">멜론</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="new_item_card">
+                        <div class="text_box">
+                            <p class="card_info">
+                                <img src="./images/6562f7bc017800001.webp" alt="speaker">
+                                <span class="cate_title">보도자료</span>
+                                <span class="date">2022.11.23</span>
+                                <a href="#void"><img src="./images/ico-more.svg" alt="더보기"></a>
+                            </p>
+                            <p class="card"><a href="#void">카카오 개발자 컨퍼런스 'if(kakao) dev 2022'</a></p>
+                            <p class="hash">#이프카카오 #컨퍼런스</p>
+                        </div>
+                        <div class="img_box">
+                            <img src="./images/a1e5f4b9018400001.webp" alt="if(kakao)">
+                        </div>
+                    </div>
+                    <div class="new_item_card">
+                        <div class="text_box">
+                            <p class="card_info">
+                                <img src="./images/6562f7bc017800001.webp" alt="speaker">
+                                <span class="cate_title">보도자료</span>
+                                <span class="date">2022.11.23</span>
+                                <a href="#void"><img src="./images/ico-more.svg" alt="더보기"></a>
+                            </p>
+                            <p class="card"><a href="#void">카카오메이커스, '2022 서울카페쇼'와 함게...</a></p>
+                            <p class="hash">#카카오메이커스</p>
+                        </div>
+                        <div class="img_box">
+                            <img src="./images/a1bfb2b0018400001.webp" alt="2022 서울카페쇼">
+                        </div>
+                    </div>
+                    <div class="new_item_card">
+                        <div class="text_box">
+                            <p class="card_info">
+                                <img src="./images/ico_privacy.png" alt="privacy">
+                                <span class="cate_title">카카오 프라이버시</span>
+                            </p>
+                            <p class="card"><a href="#void">데이터의 연결과 보호의 균형을 위한 카카오의 노력</a></p>
+                            <p class="hash">#카카오프라이버시</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="news_item_card news_item_big">
+                    <div class="text_box">
+                        <p class="card_info">
+                            <img src="./images/6562f7bc017800001.webp" alt="speaker">
+                            <span class="cate_title">보도자료</span>
+                            <span class="date">2022.11.24</span>
+                            <a href="#void"><img src="./images/ico-more.svg" alt="더보기"></a>
+                        </p>
+                        <p class="card"><a href="#void">카카오, KISA와 중소사업자 대상 개인정보보호 온라인 교육 실시</a></p>
+                        <p class="hash">#카카오비즈니스세미나 #개인정보보호 #중소사업자상생 #KISA</p>
+                    </div>
+                    <div class="img_box">
+                        <img src="./images/a7272191018400001.webp" alt="비즈니스 세미나">
+                    </div>
+                </div>
+            </div>
+            <div class="kakao_etc">
+                <div class="kakao_servic">
+                    <a href="#void">
+                        <strong>사람과 기술로 일상을 돕는 카카오 서비스</strong>
+                        <p class="more_btn">서비스 바로가기<i></i></p>
+                    </a>
+                </div>
+                <div class="kakao-recruit">
+                    <a href="#void">
+                        <strong>세상만사에 관심이 많다면, 당신은 이미 카카오 크루</strong>
+                        <p class="more_btn">인재영입 바로가기<i></i></p>
+                    </a>
+                </div>
+            </div>
+            <p class="more_btn"><a href="#void">카카오 소식 모아보기</a></p>
+            <p class="link_top"><a href="#void"><img src="./images/ico_top.svg" alt="위로가기"></a></p>
+        </section>
+    </main>
+    <!-- footer -->
+    <footer>
+        <div class="innerBox">
+            <div class="footer_top">
+                <!-- div.kakao_sitemap*6>a[href="#void"]+ul>li*6>a[href=:#void] -->
+                <div class="kakao_sitemap">
+                    <a href="#void">카카오</a>
+                    <ul>
+                        <li><a href=":#void">카카오 문화</a></li>
+                        <li><a href=":#void">공동체</a></li>
+                        <li><a href=":#void">히스토리</a></li>
+                    </ul>
+                </div>
+                <div class="kakao_sitemap">
+                    <a href="#void">뉴스</a>
+                </div>
+                <div>
+                    <a href="#void">기술과 서비스</a>
+                    <ul>
+                        <li><a href=":#void">기술</a></li>
+                        <li><a href=":#void">서비스</a></li>
+                    </ul>
+                </div>
+                <div class="kakao_sitemap">
+                    <a href="#void">약속과 책임</a>
+                    <ul>
+                        <li><a href=":#void">ESG</a></li>
+                        <li><a href=":#void">소셜임팩트</a></li>
+                        <li><a href=":#void">디지털 권리</a></li>
+                        <li><a href=":#void">AI 윤리</a></li>
+                    </ul>
+                </div>
+                <div class="kakao_sitemap">
+                    <a href="#void">투자정보</a>
+                    <ul>
+                        <li><a href=":#void">기업지배구조</a></li>
+                        <li><a href=":#void">주가정보</a></li>
+                        <li><a href=":#void">재무정보</a></li>
+                        <li><a href=":#void">IR행사</a></li>
+                        <li><a href=":#void">공시정보</a></li>
+                        <li><a href=":#void">공고</a></li>
+                    </ul>
+                </div>
+                <div class="kakao_sitemap">
+                    <a href="#void">고객센터</a>
+                    <ul>
+                        <li><a href=":#void">카카오 고객센터<i></i></a></li>
+                        <li><a href=":#void">Daum 고객센터<i></i></a></li>
+                    </ul>
+                    <a href="#void">인재영입<i></i></a>
+                    <a href="#void">카카오계정<i></i></a>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <!-- 왼쪽 오른쪽 나누기 -->
+                <!-- div.foot_menu>ul>li*10>a[href="#void"]+ul>li*3>a[href="#void"] -->
+                <div class="foot_menu">
+                    <ul>
+                        <li>
+                            <a href="#void">이용약관</a>
+                            <ul>
+                                <li><a href="#void">카카오계정 서비스<i></i> </a></li>
+                                <li><a href="#void">카카오 서비스<i></i></a></li>
+                                <li><a href="#void">Daum 서비스<i></i></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#void">위치기반서비스이용약관</a>
+                            <ul>
+                                <li><a href="#void">카카오 서비스<i></i></a></li>
+                                <li><a href="#void">Daum 서비스<i></i></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#void">개인정보처리방침</a>
+                            <ul>
+                                <li><a href="#void">기업사이트</a></li>
+                                <li><a href="#void">카카오 서비스<i></i></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#void">운영정책</a>
+                        </li>
+                        <li>
+                            <a href="#void">청소녕보호정책</a>
+                            <ul>
+                                <li><a href="#void">카카오 서비스<i></i></a></li>
+                                <li><a href="#void">Daum 서비스<i></i></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#void">브랜드보호정책</a>
+                        </li>
+                        <li>
+                            <a href="#void">권리침해신고안내</a>
+                        </li>
+                        <li>
+                            <a href="#void">공지사항</a>
+                            <ul>
+                                <li><a href="#void">투자정보 공지</a></li>
+                                <li><a href="#void">카카오 서비스<i></i></a></li>
+                                <li><a href="#void">Daum 서비스<i></i></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#void">사이버윤리실</a>
+                        </li>
+                        <li>
+                            <a href="#void">Contact Us</a>
+                        </li>
+                    </ul>
+                    <small class="copyrighy">© Kakao Corp. All rights reserved.</small>
+                </div>
+                <div class="rel_site">
+                    <a href="#void">관련사이트</a>
+                    <!-- ul.rel_site_list>li*6>a[href="#void"]>i -->
+                    <ul class="rel_site_list">
+                        <li><a href="#void">카카오 AI<i></i></a></li>
+                        <li><a href="#void">카카오 프라이버시<i></i></a></li>
+                        <li><a href="#void">카카오 디벨로퍼스<i></i></a></li>
+                        <li><a href="#void">다음 포털 사이트<i></i></a></li>
+                        <li><a href="#void">동반 성장 사이트<i></i></a></li>
+                        <li><a href="#void">제주 with kakao<i></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,896 @@
+body{
+    font-family: 'NanumBarunGothic', sans-serif;
+    font-size: 16px;
+    /* 가장 많이 쓰는 크기를 body에 주기 */
+    color: #222;
+}
+.ham-btn{
+    display:none;
+}
+.inner{
+    max-width:1480px;
+    margin: 0 auto;
+    /* background-color: rgba(255,0,0,0.2); */
+}
+/* header */
+/* logo nav gnb에 felx x float o */
+/* flex 주고 싶으면 logo랑 gnb를 하나로 묶어서 left, right 주기 */
+header{
+    background:black;
+    width:100%;
+    /* fixed 줄 때 너비 꼭 주기!! */
+    height:80px;
+    line-height:80px;
+    position:fixed;
+    z-index:10000;
+}
+.logo{
+    float:left;
+    width:110px;
+}
+.logo img{
+    width:100%;
+}
+nav{
+    float:left;
+}
+#nav{
+    display:flex;
+    /* gap: 60px; */
+    /* gap은 margin이랑 비슷해서 호버했을 때 영역 선택이 넓지 않음 
+    -> #nav>li에 padding값 주기*/
+    margin-left: 60px;
+}
+#nav>li{
+    padding: 0 30px;
+    position:relative;
+}
+#nav>li>a{
+    color:white;
+    font-size:1.3em;
+    font-weight:700;
+    transition: 0.5s;
+}
+#nav>li:hover>a{
+    color: #009223;
+    /* li에 hover하면 그 자식으로 있는 a의 색이 변하도록 */
+}
+#nav .depth2{
+    display:none;
+    position: absolute;
+    background: white;
+    top: 65px;
+    left:0;
+    width:220px;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.5);
+}
+#nav .depth2 a{
+    display: block;
+    padding: 0 30px;
+    font-size: 1.15em;
+    line-height: 3;
+    transition: 0.5s;
+}
+#nav .depth2 a:hover{
+    background: #009223;
+    color: white;
+}
+#nav .right{
+    background: #eee;
+    height:331px;
+    left:220px;
+    box-shadow: none;
+    border-left: 1px solid #ddd;
+}
+#nav>li:hover .depth2{
+    display: block;
+}
+.gnb-wrap{
+    float:right;
+    display:flex;
+    gap:20px;
+    align-items:center;
+    /* 돋보기와 후원하기 높이를 가운데로 맞추는 명령어 */
+}
+.gnb-wrap>.gnb{
+    display:flex;
+    gap:30px;
+}
+.gnb-wrap>.gnb>li{}
+.gnb-wrap>.gnb>li>a{
+    color:#ddd;
+}
+.search-wrap>a{
+    display:block;
+    background: white;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background-image:url(../images/icon_search_search.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:60%;
+    transition:0.3s;
+}
+.search-wrap>a:hover{
+    background-image:url(../images/icon_search_header_white.png);
+    background-color:#666;
+}
+.search-wrap>.form-inner{
+    display:none;
+}
+.sponser>a{
+    display:block;
+    /* background:#e98300;
+    border: 1px solid #e98300; */
+    background: #009223;
+    border: 1px solid #009223;
+    color: white;
+    padding: 0 40px;
+    line-height: 50px;
+    font-size: 1.2em;
+    transition: 0.3s;
+}
+.sponser>a:hover{
+    background:transparent;
+    border-color: white;
+}
+/* #container */
+/* #main-banner */
+#main-banner{
+    height:860px;
+    position:relative;
+    overflow:hidden;
+}
+.banner{
+    display:flex;
+    /* 해상도가 높으면 사진이 겹쳐 보이기 때문에 부모 사이즈나 자식 사이즈를 
+    조절해야함 */
+    /* width 100% * 3 / 1 (사진갯수 / 보여주고 싶은 갯수) */
+    width:calc(100% * 3);
+    height:100%;
+}
+.banner>li{
+    /* width 100% / 3 */
+    width:calc(100% / 3);
+    height:100%;
+    position: relative;
+}
+.banner>li img{
+    width:100%;
+    height:100%;
+    /* 사이즈에 맞게 비율을 유지하면서,
+    이미지의 너비보다 부모의 너비가 넓으면 너비를 채우면서 높이가 조절.
+    이미지의 너비보다 부모의 너비가 작으면 높이를 100% 채우면서 너비부분이 잘려진다*/
+    object-fit:cover;
+}
+.banner>li .text-box{
+    width:100%;
+    position: absolute;
+    top:50%;
+    /* left:50%; */
+    /* left를 주면 50%너비 내에서 글자가 존재하는 거기 때문에
+    공간이 충분히 넓음에도 글이 밑으로 내려감
+    ->absolute에 너비 100%를 주면 가운데로 감! */
+    text-align: center;
+    transform: translate(0, -50%);
+    color: white;
+}
+.banner>li .text-box>h2{
+    font-size: 5em;
+    text-transform: uppercase;
+    font-family: WWF;
+    font-weight: 400;
+}
+.banner>li .text-box>span{
+    display:block;
+    font-size: 1.5em;
+    margin: 10px 0 30px;
+}
+.banner>li .text-box>.more-btn>a{
+    display: inline-block;
+    /* background: #009223; */
+    color:white;
+    text-transform:uppercase;
+    font-family:"WWF";
+    font-size:1.65em;
+    padding: 10px 65px;
+    border:1px solid white;
+    transition: 0.5s;
+}
+.banner>li .text-box>.more-btn>a:hover{
+    background: black;
+    border-color:#009223;
+}
+.control-wrap{
+    position:absolute;
+    /* 부모는 #main-banner */
+    width:100%;
+    bottom:70px;
+    left:50%;
+    transform: translateX(-50%);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.control-btn{
+    display:flex;
+    gap: 25px;
+    /* a에 margin 주는 거랑 똑같음 */
+}
+.control-btn>li>a{
+    display:block;
+    width:32px;
+    height:42px;
+    background-size:cover;
+    text-indent:-9999px;
+}
+.control-btn>.prev>a{
+    background-image:url(../images/main_slide_arr_prev.png);
+}
+.control-btn>.next>a{
+    background-image:url(../images/main_slide_arr_next.png);
+}
+.control-btn>.play-stop>a{
+    background-image:url(../images/main_slide_pause.png);
+}
+.pager{
+    display:flex;
+    gap: 20px;
+    /* 위치가 맘에 안들어서! */
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+}
+.pager>li>a{
+    display:block;
+    width:5px;
+    height:5px;
+    background:white;
+    border-radius: 50%;
+    text-indent:-9999px;
+}
+.scroll{
+    width:25px;
+    height:35px;
+    border: 2px solid white;
+    border-radius:20px;
+    position:relative;
+    text-indent:-9999px;
+}
+.scroll::before{
+    content:"";
+    display:block;
+    width:2px;
+    height:60%;
+    background: rgba(255,255,255,0.5);
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+}
+.scroll::after{
+    content:"";
+    display:block;
+    width:6px;
+    height:6px;
+    background:white;
+    border-radius:50%;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    animation: scroll-ani 1s infinite alternate;
+}
+@keyframes scroll-ani{
+    0%{
+        top:6px;
+    }
+    100%{
+        top:20px;
+    }
+}
+/* main */
+/* section 공통사항 */
+section{
+    padding: 100px 0 0;
+}
+section .title{
+    text-align: center;
+    font-size: 2.75em;
+    position: relative;
+    padding-bottom: 30px;
+    /* bottom값을 주고 after에 bottom:0을 주면 padding의 30px값이 적용된다 */
+}
+/* title 밑에 주황색 바를 after로 만들기 */
+section .title::after{
+    content:"";
+    display:block;
+    /* inline-block을 주면 최신소식 뒤쪽에 붙음 */
+    /* block을 주면 맨 앞에 붙는다 = 둘 다 position 어차피 줘야함*/
+    width: 30px;
+    height: 3px;
+    background: #009223;
+    position: absolute;
+    left:50%;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+section .sub{
+    text-align: center;
+    font-size: 1.2em;
+    font-weight:300;
+    color: #333;
+    margin: 44px 0 80px;
+}
+section ul{
+    display:flex;
+    justify-content: space-between;
+}
+section ul img{
+    width:100%;
+}
+/* 공통사항 끝 */
+/* news-wrap */
+/* tab-wrap안에 있는 li에 사이즈 정해주기 */
+.tab-menu{
+    justify-content: flex-start;
+    gap: 35px;
+    margin: 30px 0;
+}
+.tab-menu>li{
+}
+.tab-menu>li>a{
+    font-size: 1.2em;
+    display:flex;
+    gap:10px;
+}
+.tab-menu>li>a:hover{
+    color:#e98300;
+}
+.tab-menu>li>a>i{
+    display:block;
+    width: 21px;
+    height:21px;
+    background-image:url(../images/btn_go_board_list.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* 화살표를 position을 줘도 되고, a에 flex로 붙여도 됨 */
+}
+.tab-menu>li>a:hover>i{
+    background-image:url(../images/btn_go_board_list_on.png);
+}
+.tab-list{
+}
+.tab-list>li{
+    width:32%;
+    /* 3개 합쳐서 100%가 안되게! (여백 필요) */
+    border: 1px solid #ddd;
+    position: relative;
+}
+.tab-list>li::after{
+    /* hover하면 보이는 안쪽선 */
+    content:"";
+    display:block;
+    width:100%;
+    height:100%;
+    border: 10px solid #009223;
+    position:absolute;
+    top:0;
+    left:0;
+    box-sizing: border-box;
+    opacity:0;
+    transition:0.3s;
+}
+.tab-list>li .img-box{
+    height:320px;
+    overflow: hidden;
+}
+.tab-list>li .img-box img{
+    height:100%;
+    object-fit:cover;
+    transition: 0.3s;
+}
+.tab-list>li .text-box{
+    padding: 30px;
+}
+.tab-list>li .text-box>span{
+    display:block;
+    /* 떨어뜨려 주기 */
+    color:#999;
+    font-size:0.85em;
+}
+.tab-list>li .text-box>strong{
+    font-size:1.5em;
+    margin: 20px 0 30px;
+    /* block을 줘야 margin이 들어감!! */
+    overflow:hidden;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    transition: 0.3s;
+}
+.tab-list>li .text-box>.text{
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: #333;
+    /* 여러줄 말줄임 */
+    overflow:hidden;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+}
+.tab-list>li .more-btn>a{
+    display:block;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background-color: #f9f9f9;
+    background-image:url(../images/btn_go_board_item.png);
+    background-size: 11px;
+    background-repeat:no-repeat;
+    background-position:center;
+    text-indent:-9999px;
+    margin: 30px 0 10px;
+    transition: 0.3s;
+}
+.tab-list>li:hover::after{
+    /* box-shadow: 0 0 0 10px #009223 inset; */
+    opacity:1;
+}
+.tab-list>li:hover img{
+    transform:scale(1.2);
+}
+.tab-list>li:hover strong{
+    color:#009223;
+}
+.tab-list>li:hover .more-btn>a{
+    background-color:#009223;
+    background-image:url(../images/btn_go_board_item_hover.png);
+}
+/* sponsor */
+/* height:510px; */
+.sponser-wrap{
+    height:400px;
+    padding:0;
+    margin-top:100px;
+    background-image: url(../images/main_support_pic.png);
+    background-size:cover;
+    background-position:center;
+    text-align:center;
+    color:white;
+    /* 반응형 고려해서 flex로 가운데 정렬 맞추기 */
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sponser-wrap>span{
+    /* display:block; */
+    font-size: 1.7em;
+    /* padding-top: 100px; */
+}
+.sponser-wrap>strong{
+    display:block;
+    font-size: 5em;
+    font-family: "WWF";
+    font-weight: 400;
+    margin-bottom:40px;
+}
+.sponser-wrap>p>a{
+    display:inline-block;
+    background:#111;
+    border: 1px solid #ccc;
+    font-size:1.18em;
+    color:white;
+    padding: 15px 70px;
+    transition:0.3s;
+}
+.sponser-wrap>p:hover>a{
+    background:#009223;
+    border:1px solid #009223;
+}
+/* wwf-wrap */
+.wwf-wrap{
+    margin:0 50px;
+    /* overflow:hidden; */
+}
+.wwf-list>div{
+    overflow: hidden;
+}
+.wwf-list{
+    position:relative;
+    /* arrow poisition에 대한 relative; */
+}
+.wwf-slider{
+    position:relative;
+}
+.wwf-slider>li{
+    margin-right:10px;
+    position:relative;
+    cursor:pointer;
+}
+.wwf-slider>li::after{
+    content:"";
+    display:block;
+    width:100%;
+    height:100%;
+    border: 7px solid #009223;
+    box-sizing:border-box;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    transition:0.3s;
+}
+.wwf-slider>li>a .img-box{
+    overflow:hidden;
+    /* img의 부모에게 hidden주기
+    안 보고 싶은 자식의 부모에게!! 주기!!! */
+}
+.wwf-slider>li img{
+    transition:0.3s;
+    width:auto;
+}
+.wwf-slider>li .text-box{
+    color:white;
+    position:absolute;
+    bottom:40px;
+    left:40px;
+    transition:0.3s;
+}
+.wwf-slider>li .text-box>strong{
+    font-family: "WWF";
+    font-size: 2.5em;
+    font-weight:400;
+}
+.wwf-slider>li .text-box>p{
+    font-size:1.25em;
+    font-weight:300;
+    padding-top:8px;
+}
+.wwf-slider>li:hover::after{
+    opacity:1;
+}
+.wwf-slider>li:hover img{
+    transform:scale(1.2);
+}
+.wwf-slider>li:hover .text-box{
+    color:#009223;
+}
+.wwf-list>.arrow>li>a{
+    position:absolute;
+    top:50%;
+    display:block;
+    width:60px;
+    height:60px;
+    background-color:#009223;
+    border-radius:50%;
+    background-size:15px;
+    background-repeat:no-repeat;
+    background-position:center;
+    text-indent:-9999px;
+}
+.wwf-list>.arrow>.left-arrow>a{
+    left:-30px;
+    background-image:url(../images/main_exer_prev.png);
+}
+.wwf-list>.arrow>.right-arrow>a{
+    background-image:url(../images/main_exer_next.png);
+    right:-30px;
+}
+/* deal-wrap */
+.deal-wrap{
+    background: #111;
+    margin-top:200px;
+    padding-bottom: 100px;
+}
+.deal-wrap>div{
+    display:flex;
+    justify-content: space-between;
+    /* gap:100px; */
+    word-break: keep-all;
+}
+.deal-wrap>.deal-top{
+    color:white;
+}
+.deal-top>.title-box{
+    padding-right:100px;
+}
+.deal-top>.title-box>h2{
+    font-size: 5.6em;
+    font-family:"WWF";
+    font-weight: 400;
+    line-height:1;
+}
+.deal-top>.title-box>h2::after{
+    content:"";
+    display:block;
+    width: 30px;
+    height: 3px;
+    background:#009223;
+    margin: 30px 0 40px;
+}
+.deal-top>.title-box>.sub-title{
+    font-size: 2em;
+}
+.deal-top>.title-box>.sub{
+    color: white;
+    text-align: left;
+    font-size: 1.275em;
+    line-height:1.6;
+}
+.deal-top>.deal-img{
+    position:relative;
+    /* absolute말고 relative 줘서 자리 잡기 */
+    top:-160px;
+}
+.deal-wrap>.icon-wrap{
+    color:#e98300;
+}
+.icon-wrap>div{
+    display:flex;
+    /* 아이콘과 슬로건이 옆으로 붙도록 */
+    gap:20px;
+    width: 30%;
+}
+.icon-wrap>div:last-child{
+    width:34%;
+}
+.icon-wrap>div img{
+    width:82px;
+}
+.icon-wrap>div .slogan-text>strong{
+    display:block;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+.icon-wrap>div .slogan-text>p{}
+/* campaign */
+.campaign-wrap{
+    margin: 0 50px;
+}
+.campaign-list{
+    padding-bottom:100px;
+}
+.campaign-list>li{
+    width:23%;
+    position:relative;
+}
+.campaign-list>li .img-box{
+    overflow:hidden;
+    transition: 0.3s;
+}
+.campaign-list .img-box img{
+    width:100%;
+    transition: 0.3s;
+}
+.campaign-list>li:hover .img-box::after{
+    opacity:1;
+}
+.campaign-list>li .img-box::after{
+    content:"";
+    display:block;
+    width:100%;
+    height:100%;
+    border: 8px solid #009223;
+    position:absolute;
+    top:0;
+    left:0;
+    box-sizing: border-box;
+    opacity:0;
+    transition:0.3s;
+}
+.campaign-list>li:hover img{
+    transform: scale(1.2);
+}
+.campaign-list .text-box{
+    width:80%;
+    position: absolute;
+    left: 20px;
+    bottom: -100px;
+}
+.campaign-list .text-box>.text-title{
+    display:inline-block;
+    color:white;
+    font-size:1.4em;
+    font-weight:300;
+    background: #111;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+.campaign-list>li:hover .text-box>.text-title{
+    background: #009223;
+}
+.campaign-list .text-box>p{
+    color:#777;
+    font-size: 1.15em;
+    font-weight: 300;
+    line-height:1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+/* footer */
+footer{
+    margin-top:150px;
+    padding: 100px 0 50px 0;
+    border-top: 1px solid #ddd;
+}
+footer>.inner>div{
+    display:flex;
+    justify-content: space-between;
+}
+.sitemap{
+    /* news-letter가 차지한 나머지 공간을 sitemap이 다 차지하겠다는
+    명령어 주기*/
+    flex:1;
+}
+.sitemap>ul{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    row-gap: 40px;
+}
+.sitemap>ul>li{
+    width:33%;
+    /* flex는 자식들의 너비를 넘쳐나게 줘도 떨어지지 않음
+    flex-wrap으로 떨어뜨리기 */
+}
+.sitemap li>span{
+    display:block;
+    font-size: 1.1em;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+.sitemap>ul>li>div{
+    position:relative;
+}
+.sitemap>ul>li .depth2{
+    line-height:1.9;
+    font-size: 0.8em;
+}
+.sitemap>ul>li .right{
+    position:absolute;
+    top:0;
+    left:50%;
+}
+.sitemap>ul>li .right a{
+    color:#999;
+}
+.news-letter{
+    border-left: 3px solid #009223;
+    padding-left: 40px;
+}
+.news-letter>.newsletter-title>strong{
+    font-size: 1.3em;
+}
+.news-letter>.newsletter-title>p{
+    max-width: 380px;
+    margin: 30px 0 100px;
+}
+.email-wrap>label{
+    display:block;
+    font-weight: bold;
+}
+.email-wrap>input{
+    width:100%;
+    line-height:40px;
+    border:none;
+    background: #ddd;
+    margin: 20px 0; 
+}
+.email-wrap>button{
+    width:100%;
+    line-height:50px;
+    border:0;
+    background: #111;
+    color:white;
+    font-size: 1.1em;
+    transition:0.3s;
+}
+.email-wrap>button:hover{
+    background:#009223;
+}
+/*  */
+.foot-link{
+    border-bottom: 2px solid black;
+    padding: 20px 0;
+    /* display:flex;
+    justify-content: space-between; */
+    align-items:center;
+    margin: 80px 0 40px;
+}
+.foot-link>div ul{
+    /* div ul flex주기
+    나는 li에 float 줬었음 */
+    display: flex;
+    gap: 20px;
+}
+.foot-link>.util-menu li>a{
+    color: #444;
+}
+.foot-link>.sns-wrap{
+    display: flex;
+    gap:25px;
+    align-items:center;
+}
+.foot-link>.sns-wrap>strong{
+    font-family: "WWF";
+    font-size:1.25em;
+    font-weight: 400;
+}
+.foot-link>.sns-wrap>.sns-list>li:nth-child(2n+1) img{
+    width: 16px;
+}
+.foot-link>.sns-wrap>.sns-list>li:nth-child(2) img{
+    width: 9px;
+}
+.foot-link>.sns-wrap>.sns-list>li:nth-child(4) img{
+    width: 12px;
+}
+/*  */
+.foot-bottom{
+    /* display:flex; */
+    margin-top: 35px;
+}
+.foot-bottom>.foot-logo{
+    width:65px;
+    margin-right: 50px;
+}
+.foot-bottom>.foot-logo img{
+    width:100%;
+}
+.foot-info{
+    flex:1;
+    /* 위에서 justify-content:space-between을 줬기 때문에
+    양옆에 붙여졌던 것을 flex:1을 줌으로써 왼쪽에 붙임 */
+    font-size:0.9em;
+    color:#777;
+}
+.foot-info>.company{
+    margin-bottom: 30px;
+    font-size: 1.2em;
+}
+.foot-info div{
+    margin-bottom:7px;
+}
+.foot-info>address p{
+    display:inline-block;
+    margin-right: 20px;
+    line-height:1.4;
+}
+.foot-info strong{
+    color:#444;
+    margin-right:10px;
+}
+.foot-info span>a{
+    color:#777;
+}
+.foot-info>.copy{
+    font-size:0.95em;
+    margin-top:20px;
+}
+.foot-info>.copy span{
+    text-decoration:underline;
+}
+/* 위로가기 버튼 */
+.top{
+    position:fixed;
+    right:50px;
+    bottom: 50px;
+}
+.top>a{
+    display:block;
+    width:60px;
+    height:60px;
+    background-color: #009223;
+    border-radius: 50%;
+    background-image: url(../images/icon_arr_top.png);
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size:20px;
+    text-indent:-9999px;
+}

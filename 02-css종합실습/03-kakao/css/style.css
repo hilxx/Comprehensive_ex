@@ -1,0 +1,387 @@
+/* 가운데 innerBox 레이아웃 주기 */
+.innerBox{
+    max-width:1296px;
+    margin: 0 auto;
+    /* background-color:rgba(255,0,0,0.3); */
+}
+/* header */
+header{
+    text-align:center;
+    /* nav메뉴를 가운데 정렬하기 위해서 nav에
+    float를 주면 마진값을 또 줘야하기 때문에 불편 */
+    padding: 25px 0;
+}
+header .logo{
+    float:left;
+    width:74px;
+    /* svg크기가 너무 크면 float를 줬을 때 사라질 수 있음
+    =width값을 주기 */
+    margin-top: 5px;
+    /* 로고만 살짝 내리기 위해 margin을 줌 */
+    font-size:0;
+    /* h1의 기본 크기 32px이기 때문에 공백이 너무 큼 */
+}
+header nav{
+    display:inline-block;
+}
+header nav ul{}
+header nav ul>li{
+    float:left;
+    margin: 5px 25px 0;
+    /* header에 line-height지우고 여기에 margin 주기*/
+}
+header nav ul>li>a{
+    font-weight:700;
+    font-size:1.15em;
+}
+header nav:hover ul>li>a{
+    color:#999;
+}
+header nav ul>li>a:hover{
+    color:black;
+}
+header .gnb{
+    float:right;
+}
+header .gnb>li{
+    float:left;
+    margin-left:10px;
+}
+header .gnb>li>a{
+    display:block;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    /* hover에 주는 것이 아닌 li>a에 주는 것
+    애초에 a에 영역을 줘버리면 hover에 배경색만 넣어주면 되니까
+    li에 주는 것 */
+    padding:5px;
+}
+header .gnb>li>a:hover{
+    background:#eee;
+}
+/* main #container */
+#container{}
+#container>.today_kakao-header{
+    display:none;
+    /* kakao-header는 처음부터 보이는 게 아니므로 none;으로 숨겨놓기 */
+    border-bottom:1px solid #eee;
+    font-size: 0.9em;
+    padding: 20px 0;
+}
+#container>.today_kakao-header img{
+    width:36px;
+    margin-right: 10px;
+    /* margin-right값 줘서 글씨랑 떨어뜨리기 */
+}
+.contents{
+    position:relative;
+    padding: 0 0 150px;
+}
+.contents>h2{
+    font-size: 3.3em;
+    margin-top:100px;
+}
+.contents>h2>img{
+    width:70px;
+    margin-right:10px;
+}
+.contents>.today{
+    font-size:3.3em;
+    font-weight:700;
+    margin-bottom:100px;
+}
+.contents>div>div{
+    float:left;
+    width:49%;
+}
+.contents>div>div:last-child{
+    float:right;
+}
+.contents>div .news_item_card{
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    border-radius: 20px;
+    background:white;
+    float:left;
+    /* .news_item_card의 부모에게 모두 clearFix 주기*/
+    box-sizing:border-box;
+    margin-bottom: 30px;
+    overflow:hidden;
+    position:relative;
+}
+.contents>div .news_item_card .text_box{
+    padding:20px 25px;
+}
+.contents>div .news_item_big{
+    width:49%;
+}
+.contents>div .news_wrap .news_item_card{
+    width:49%;
+    /* 49%안의 49%로 크기 조절 */
+}
+.contents>div .news_item_card .card_info>a{
+    display:block;
+    width:24px;
+    /* more btn 이미지 사이즈 줄이기 */
+    position:absolute;
+    right:25px;
+    top:20px;
+    /* .news_item_card에 relative 주기 */
+}
+.news_item_card .card_info>img{
+    width:50px;
+    /* 확성기 죠르디 등등의 이미지 크기 */
+}
+.news_item_card .img_box>img{
+    width:100%;
+    /* 올해의 모금함 등의 이미지 크기 */
+}
+.news_item_card .card_title{
+    font-size:1.6em;
+    font-weight:700;
+}
+/* 위치잡기 */
+.kakao_news1 .news_wrap{
+    position:relative;
+    height:800px;
+}
+.kakao_news1 .news_wrap>.news_item_card{}
+.kakao_news1 .news_wrap>.news_item_card:nth-child(2){
+    position:absolute;
+    right:0;
+}
+.kakao_news1 .news_wrap>.news_item_card:nth-child(3){
+    position:absolute;
+    right:0;
+    top:180px;
+}
+.kakao_news1 .news_wrap>.news_item_card:nth-child(4){
+    position:absolute;
+    right:0;
+    top:375px;
+}
+.kakao_news1 .news_wrap>.news_item_card:nth-child(5){
+    position:absolute;
+    left:0;
+    top:375px;
+}
+
+.kakao_news2 .news_wrap{
+    position:relative;
+    height:800px;
+}
+.kakao_news2 .news_wrap>.news_item_card{}
+.kakao_news2 .news_wrap>.news_item_card:nth-child(2){
+    position:absolute;
+    right:0;
+}
+.kakao_news2 .news_wrap>.news_item_card:nth-child(3){
+    position:absolute;
+    left:0;
+    top:230px;
+}
+.kakao_news2 .news_wrap>.news_item_card:nth-child(4){
+    position:absolute;
+    right:0;
+    top:440px;
+}
+.kakao_culture{
+    text-align:center;
+    padding: 70px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    border-radius: 20px;
+    background:white;
+    margin: 50px 0;
+}
+.kakao_culture>strong{
+    font-size: 3em;
+}
+.kakao_culture>p{
+    margin: 20px 0;
+}
+.kakao_culture>p>a{
+    display:inline-block;
+    padding: 10px 25px;
+    color:white;
+    background:black;
+    border-radius: 30px;
+}
+.kakao_culture .pc_img{
+    float:none;
+    width:100%;
+}
+.kakao_culture .pc_img img{
+    width:70%;
+    /* 필기 참고*/
+}
+.kakao_culture .mobile_img{
+    display:none;
+}
+/* .kakao_etc 
+내가 한 거 주석처리*/
+/* .more_btn, .more_btn2{
+    border-radius:30px;
+    line-height:33px;
+    text-align:center;
+    padding: 0 30px;
+}
+.kakao_etc>div strong{
+    display:block;
+    font-size:1.5em;
+    font-weight:700;
+    padding: 20px 20px 0;
+}
+.kakao_etc>div p{ */
+    /* display:inline-block; */
+    /* width:120px;
+    height: 33px;
+    color:white;
+    background:black;
+    margin: 10px 20px;
+}
+.kakao_etc>.kakao_service>a{
+    display:block;
+    height:360px;
+    border-radius:30px;
+    background:#fae100;
+}
+.kakao_etc>.kakao_recruit>a{
+    display:block;
+    height:360px;
+    border-radius:30px;
+    background:#3c64ff;
+}
+.more_btn2{
+    color:black;
+    background:#ddd;
+    width:120px;
+    height: 33px;
+    margin: 10px 20px;
+    padding:5px 30px;
+} */
+.kakao_etc>div{
+    padding:35px 40px;
+    height:300px;
+    box-sizing:border-box;
+    background-repeat:no-repeat;
+    background-position:85% 75%;
+    border-radius:15px;
+    word-break:keep-all;
+}
+.kakao_etc>.kakao_service{
+    background-color:#fae100;
+    background-image:url(../images/bg_home_service.png);
+    background-size:160px;
+}
+.kakao_etc>.kakao_recruit{
+    background-color:#3c64ff;
+    background-image:url(../images/bg_home_recruit.png);
+    background-size:309px;
+}
+.kakao_etc>div strong{
+    font-size:2.2em;
+    display:block;
+    padding-right:100px;
+}
+.kakao_etc>div .more_btn{
+    background:black;
+    color:white;
+    display:inline-block;
+    /* 글자만큼만 배경색이 들어가게 해주고 싶기 때문에 씀!
+    p는 블럭으로 배경색을 주면 100% 들어감 */
+    padding: 10px 20px;
+    border-radius:30px;
+    margin-top:25px;
+}
+.contents>.more_btn2{
+    text-align:center;
+    /* inline-block으로 가운데로 감 */
+    margin:60px 0;
+}
+.contents>.more_btn2>a{
+    display:inline-block;
+    background:#eee;
+    border-radius:50px;
+    padding: 17px 50px;
+    font-size:1.25em;
+}
+.link_top{
+    position:absolute;
+    /* .contents한테 relative주기 */
+    right:0;
+    bottom:50px;
+}
+.link_top>a{
+    display:block;
+    width:50px;
+    height:50px;
+    background:black;
+}
+/* footer */
+footer{
+    border-top:1px solid #aaa;
+    padding: 50px 0;
+}
+.footer_top>div{
+    float:left;
+    /* .footer_top에 clearFix 주기 */
+    width:16.5666666%;
+    /* 100% 나누기 6개 */
+    line-height:2.5;
+}
+.footer_top>div>a{
+    font-weight:700;
+    display:block;
+    /* 인재영입 카카오계정(a로 되어있음)을 위아래로 떨어뜨리려고! */
+    color:black;
+}
+.footer_top>div .util_menu a{
+    color:#666;
+}
+.footer_bottom>div{
+    float:left;
+    /* .footer_bottom에 clearFix주기 */
+}
+.foot_menu{
+}
+.foot_menu li{
+    float:left;
+    /* 부모 ul에 clearFix주기 (copyright가 올라왔었음)*/
+    margin-right:20px;
+}
+.foot_menu>ul>li ul{
+    display:none;
+}
+.foot_menu small{
+    display:block;
+    /* small은 inline이라 margin-top이 안 먹으므로! */
+    margin-top:30px;
+    color:#999;
+}
+.footer_bottom{
+    margin-top:100px;
+}
+.footer_bottom>.rel_site{
+    float:right;
+    /* float가 작동 안 할 때 부모를 써주기 */
+    line-height:2.5;
+    text-indent:20px;
+    font-size:0.85em;
+    position:relative;
+}
+.rel_site>a{
+    display:block;
+    background:#ddd;
+    width:200px;
+    border-radius:30px;
+    padding:5px 0
+}
+.rel_site>.rel_site_list{
+    background:#ddd;
+    border-radius: 10px;
+    position:absolute;
+    width:100%;
+    /* .rel_site의 width가 200px이므로 여기에 100%로 맞춰짐 */
+    bottom:50px;
+    padding:10px 0;
+}

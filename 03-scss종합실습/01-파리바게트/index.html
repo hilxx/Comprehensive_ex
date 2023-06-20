@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="inner">
+            <p class="ham-btn"><a href="#"><img src="./images/i-menu.png" alt=""></a></p>
+            <!-- 제목에 img를 넣을 때 alt를 안 쓰면 경고가 뜸! -->
+            <h1 class="logo"><a href="#"><img src="./images/logo.svg" alt="파리바게트-logo"></a></h1>
+            <div class="gnbWrap">
+                <div class="gnb-left">
+                    <ul>
+                        <li class="color"><a href="#">파바의 약속</a></li>
+                        <li><a href="#">파바 매거진</a></li>
+                        <li><a href="#">파바 스토리</a></li>
+                        <li><a href="#">상품 안내</a>
+                            <div class="subWrap">
+                                <div class="sub-list">
+                                    <ul>
+                                        <li><a href="#">전체</a></li>
+                                        <li><a href="#">브레드</a></li>
+                                        <li><a href="#">케이크</a></li>
+                                        <li><a href="#">샌드위치/샐러드</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#">선물</a></li>
+                                        <li><a href="#">디저트/스낵</a></li>
+                                        <li><a href="#">음료/아이스</a></li>
+                                        <li><a href="#">간편식</a></li>
+                                    </ul>
+                                </div>
+                                <div><a href="#"><img src="./images/deliciousproductcategoryimg.jpeg" alt=""></a></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="gnb-right">
+                    <ul>
+                        <li><a href="#">매장 정보</a></li>
+                        <li><a href="#">주문 정보</a></li>
+                        <li><a href="#">프로모션</a></li>
+                    </ul>
+                    <a href="#" class="search-btn"><img src="images/icon-search.png" alt="돋보기"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- div.mobile-nav -->
+    <div class="mobile-nav">
+        <a href="#"><img src="images/icon-x.svg" alt="닫기 버튼"></a>
+        <div class="gnbWrap">
+            <div class="gnb-left">
+                <ul>
+                    <li class="color"><a href="#">파바의 약속</a></li>
+                    <li><a href="#">파바 매거진</a></li>
+                    <li><a href="#">파바 스토리</a></li>
+                    <li><a href="#">상품 안내</a>
+                        <div class="subWrap">
+                            <div class="sub-list">
+                                <ul>
+                                    <li><a href="#">전체</a></li>
+                                    <li><a href="#">브레드</a></li>
+                                    <li><a href="#">케이크</a></li>
+                                    <li><a href="#">샌드위치/샐러드</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">선물</a></li>
+                                    <li><a href="#">디저트/스낵</a></li>
+                                    <li><a href="#">음료/아이스</a></li>
+                                    <li><a href="#">간편식</a></li>
+                                </ul>
+                            </div>
+                            <div><a href="#"><img src="./images/deliciousproductcategoryimg.jpeg" alt=""></a></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="gnb-right">
+                <ul>
+                    <li><a href="#">매장 정보</a></li>
+                    <li><a href="#">주문 정보</a></li>
+                    <li><a href="#">프로모션</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="snsWrap">
+            <h2>Follow Us</h2>
+            <ul class="sns">
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <!-- scss에서 for문 써보기 -->
+            </ul>
+        </div>
+    </div>
+    <!-- div#container -->
+    <div id="container">
+        <div class="mainBanner">
+            <!-- div*3 or ul>li*3 -->
+            <!-- div*3>a>img+div.gradient -->
+            <div>
+                <a href="#">
+                    <img src="images/mainBanner_01.png" alt="">
+                    <div class="gradient"></div>
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                    <img src="./images/mainBanner_02.jpg" alt="">
+                    <div class="gradient"></div>
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                    <img src="./images/mainBanner_03.jpg" alt="">
+                    <div class="gradient"></div>
+                </a>
+            </div>
+        </div>
+        <main>
+            <!-- section*4>h2.title+ul>li*3>a[href="#"]>div.img-box+div.text-box -->
+            <section class="magazine inner">
+                <h2 class="title">PB MAGAZINE</h2>
+                <ul class="magazine-list">
+                    <li>
+                        <a href="#">
+                            <div class="img-box">
+                                <img src="./images/magazine_01.png" alt="논산 딸기">
+                            </div>
+                            <div class="text-box">
+                                <strong>논산딸기</strong>
+                                <p>논산 딸기 농가와 함께한 모두가 행복한 행복상생 프로젝트</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-box">
+                                <img src="./images/magazine_02.png" alt="문경 오미자">
+                            </div>
+                            <div class="text-box">
+                                <strong>문경 오미자</strong>
+                                <p>문경 오미자 농가와 함께한 모두가 행복한 행복상생 프로젝트</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-box">
+                                <img src="./images/magazine_03.png" alt="경산 대추">
+                            </div>
+                            <div class="text-box">
+                                <strong>경산 대추</strong>
+                                <p>경산 대추 농가와 함께한 모두가 행복한 행복상생 프로젝트</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <p class="more-btn"><a href="#">SHOW MORE</a></p>
+            </section>
+            <section class="story inner">
+                <h2 class="title">PB STORY</h2>
+                <ul class="story-list">
+                    <li>
+                        <a href="#">
+                            <div class="img-box"><img src="./images/PB-VIDEO_christmas_600x600.png" alt=""></div>
+                            <div class="text-box">
+                                <span>BREAD VIDEO, 광고</span>
+                                <h3 class="post-title">🎅2022 Wishing Christmas full.ver</h3>
+                                <p class="post-excerpt">🎅2022 Wishing Christmas full.ver﻿크리스마스에 진심이라면? 완벽한 비주얼로 완성해
+                                    보세요!</p>
+                                <p class="post-date">2022-12-19</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-box"><img src="./images/PB-VIDEO_santa_600x600.png" alt=""></div>
+                            <div class="text-box">
+                                <span>BREAD VIDEO, 광고</span>
+                                <h3 class="post-title">2022 Wishing Christmas 몰래온 산타</h3>
+                                <p class="post-excerpt">🎅2022 Wishing Christmas동화 속의 한 장면, 몰래온 산타</p>
+                                <p class="post-date">2022-12-19</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-box"><img src="./images/PB-VIDEO_redberry_600x600.png" alt=""></div>
+                            <div class="text-box">
+                                <span>BREAD VIDEO, 광고</span>
+                                <h3 class="post-title">2022 Wishing Christmas 블레싱 레드베리</h3>
+                                <p class="post-excerpt">🎅2022 Wishing Christmas축복의 의미를 담은 블레싱 레드베리</p>
+                                <p class="post-date">2022-12-19</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-box"><img src="./images/PB-VIDEO_ruby_600x600.png" alt=""></div>
+                            <div class="text-box">
+                                <span>BREAD VIDEO, 광고</span>
+                                <h3 class="post-title">2022 Wishing Christmas 루비 스트로베리 생크림</h3>
+                                <p class="post-excerpt">🎅2022 Wishing Christmas영롱한 비주얼의 완성, 루비 스트로베리 생크림</p>
+                                <p class="post-date">2022-12-19</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <p class="more-btn"><a href="#">SHOW MORE</a></p>
+            </section>
+            <section class="promotion inner">
+                <h2 class="title">PROMOTION</h2>
+                <ul class="promotion-list">
+                    <li>
+                        <a href="#">
+                            <div class="img-box">
+                                <img src="images/promotion_01_600x600.jpg" alt="화이트데이">
+                            </div>
+                            <div class="text-box">
+                                <strong>파리바게뜨와 함께하는 화이트데이🍬🤍</strong>
+                                <span>READ MORE</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-box">
+                                <img src="images/promotion_02_600x600.jpg" alt="시에라컵">
+                            </div>
+                            <div class="text-box">
+                                <strong>노스피크와 함께 선보이는 한정판 시에라컵 사전 예약 시작!</strong>
+                                <span>READ MORE</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-box">
+                                <img src="images/promotion_03_600x600.jpg" alt="하나원큐페이">
+                            </div>
+                            <div class="text-box">
+                                <strong>하나원큐페이 QR결제로 1만원 이상 결제 시 3천원 즉시혜택!</strong>
+                                <span>READ MORE</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-box">
+                                <img src="images/promotion_04_600x600.jpg" alt="두번쫄깃베이글">
+                            </div>
+                            <div class="text-box">
+                                <strong>파리바게뜨의 ‘두번쫄깃 베이글’ 🥯💙</strong>
+                                <span>READ MORE</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <p class="more-btn"><a href="#">SHOW MORE</a></p>
+            </section>
+            <section class="custom">
+                <h2 class="blind">custom</h2>
+                <div>
+                    <span>고객센터</span>
+                    <p>고객의 소리를 적극 경청하고 고객만족 향상 활동을 지속적으로 실천합니다.</p>
+                    <p class="arrow"><a href="#"></a></p>
+                </div>
+                <div>
+                    <span>제휴 안내</span>
+                    <p>다양한 온라인 제휴와 카드 정보를 확인하세요.</p>
+                    <p class="arrow"><a href="#"></a></p>
+                </div>
+                <div>
+                    <span>공지사항</span>
+                    <p>파리바게뜨 공지내용을 확인하세요.</p>
+                    <p class="arrow"><a href="#"></a></p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- footer -->
+    <footer>
+        <div class="footTop">
+            <ul class="sns">
+                <li><a href="#"><img src="images/sns_ico_01.svg" alt="facebook"></a></li>
+                <li><a href="#"><img src="images/sns_ico_02.svg" alt="instagram"></a></li>
+                <li><a href="#"><img src="images/sns_ico_03.svg" alt="youtube"></a></li>
+            </ul>
+            <ul class="foot-menu">
+                <li><a href="#">이용약관</a></li>
+                <li class="red"><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">이메일무단수집거부</a></li>
+                <li><a href="#">영상정보처리기기운영관리방침</a></li>
+            </ul>
+        </div>
+        <div class="footBottom">
+            <p><span>All Rights Reserved © PARIS BAGUETTE, PARIS CROISSANT CO., LTD.</span>
+                <span>경기도 성남시 중원구 사기막골로 31번길 18 (주)파리크리상</span>
+            </p>
+        </div>
+    </footer>
+    <!-- div.quick -->
+    <aside id="aside-menu">
+        <ul class="aside-list">
+            <li><a href="#void"><img src="images/store.svg" alt="매장정보"><span>매장정보</span></a></li>
+            <li><a href="#void"><img src="images/order-2.svg" alt="주문정보"><span>주문정보</span></a></li>
+            <li><a href="#void"><img src="images/bell.svg" alt="프로모션"><span>프로모션</span></a></li>
+            <li><a href="#void"><img src="images/franchise.svg" alt="창업안내"><span>창업안내</span></a></li>
+            <li><a href="#void"><img src="images/mobile-app-2.svg" alt="파바앱"><span>파바앱</span></a></li>
+        </ul>
+    </aside>
+</body>
+
+</html>

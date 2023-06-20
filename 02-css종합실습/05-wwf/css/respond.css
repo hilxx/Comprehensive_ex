@@ -1,0 +1,239 @@
+/* ipad max1280 /mobile max767 */
+@media screen and (max-width:767px){
+    body{
+        font-size: 12px;
+    }
+    /* 1. 제거하기 */
+    .gnb-wrap, #main-banner, .deal-top>.title-box>.sub, .deal-top>.title-box>h2::after,
+    .slogan-text>p, .sitemap{
+        display:none;
+    }
+    /* nav는 나중에 봐야하는 애기 때문에 none x */
+    nav{
+        position:fixed;
+        top:0;
+        left:100%;
+    }
+    /* 2. 보여주기 */
+    .ham-btn{
+        display:block;
+        float:right;
+    }
+    /* 3. 100% 만들기 */
+    .inner{
+        padding: 0 20px;
+    }
+    /* header */
+    header{
+        height:60px;
+        line-height:60px;
+    }
+    .logo{
+        width:60px;
+    }
+    /* container */
+    /* 쌤이 한 것 */
+    section{
+        padding:80px 0 0 0;
+        overflow:hidden;
+    }
+    .news-wrap
+    section .title{
+        font-size: 2.5em;
+    }
+    /* 최신 소식 */
+    .tab-list{
+        width:250%;
+        /* 이 간단한 걸....... */
+        /* margin-left:-75%; */
+    }
+    /* sponser-wrap */
+    .sponser-wrap{
+        height:60vw;
+        /* 고정값으로 줘도 됨
+        240px etc */
+        min-height:240px;
+        background-size:cover;
+    }
+    /* wwf-slider */
+    .wwf-wrap{
+        margin: 0 20px;
+    }
+    .wwf-list>div{
+        overflow:visible;
+    }
+    .wwf-slider{
+        width:600%;
+        justify-content: start;
+        /* 안보이는 이유는 justify-content:space를 줘서이므로
+        start로 주면 보임! */
+    }
+    .wwf-slider>li img{
+        width:100%;
+    }
+    /* deal-wrap */
+    .deal-wrap{
+        padding: 0;
+        overflow:visible;
+    }
+    .deal-wrap>div{
+        flex-wrap:wrap;
+    }
+    .deal-top{
+        padding: 0 0 0 20px;
+    }
+    .deal-top>.title-box{
+        order:1;
+    }
+    .deal-top>.title-box>h2{
+        padding-bottom:20px;
+    }
+    .deal-top>.deal-img{
+        width:100%;
+        top:-50px;
+    }
+    .deal-top>.deal-img img{
+        width:100%;
+    }
+    .deal-wrap>.icon-wrap{
+        justify-content: center;
+        gap:100px;
+    }
+    .icon-wrap>div{
+        display:block;
+        width:80px;
+        /* 너비를 적게 줘서 text를 밑으로 내리기 위해*/
+        text-align:center;
+        margin-top:20px;
+    }
+    .icon-wrap>div:last-child{
+        width:80px;
+    }
+    .slogan-text{
+        margin-top:30px;
+    }
+    /* campaign-wrap */
+    .campaign-wrap{
+        margin: 0 20px;
+    }
+    /* 밑으로 떨어뜨리기 위해 
+    .campaign-list{
+        display:block;
+    }
+    .campaign-list>li{
+        width:100%;
+        margin-bottom: 20px;
+    } */
+    .campaign-list{
+        width:200%;
+        justify-content:center;
+        gap:10px;
+    }
+    .campaign-wrap .sub{
+        margin: 44px 0 50px;
+    }
+    .campaign-list .text-box{
+        left:0;
+        bottom:-62px;
+    }
+
+    /* footer */
+    footer{
+        margin-top:50px;
+    }
+    .news-letter{
+        border-left:none;
+        width:100%;
+        /* OR flex:1; */
+    }
+    .news-letter>.newsletter-title>strong{
+        font-size:1.47em;
+    }
+    .news-letter>.newsletter-title>p{
+        max-width:100%;
+        margin: 20px 0 30px;
+        font-size:1.2em;
+    }
+    .email-wrap{
+        font-size:1.2em;
+    }
+    footer>.inner .foot-link{
+        border-top: 1px solid #ddd;
+        flex-flow:column;
+        /* or display: block; */
+        /* .foot-link>div ul, .sns-wrap{
+            justify-content:center;
+            flex-wrap:wrap 
+            column-gap:20px
+            row-gap: 10px;*/
+    }
+    .foot-link{
+        font-size:1.25em;
+    }
+    .foot-link>.util-menu>ul>li{
+        border-right: 1px solid #ddd;
+        padding-right: 15px;
+    }
+    .foot-link>.util-menu>ul>li:last-child{
+        border-right:none;
+    }
+    .foot-link>.sns-wrap{
+        padding-top:20px;
+        gap:30px;
+    }
+    .foot-link>.sns-wrap>strong{
+        font-size:1.5em;
+    }
+    .foot-link>div ul{
+        gap:30px;
+    }
+    footer>.inner>.foot-bottom{
+        display:block;
+        text-align:center;
+    }
+    .foot-bottom>.foot-logo{
+        display:inline-block;
+        margin: 0 0 20px;
+        width:50px;
+    }
+    .foot-info{
+        font-size: 1.15em;
+    }
+    .foot-info>address p{
+        display:block;
+    }
+
+    /* 내가 한 것 */
+    /* .news-wrap>.inner{
+        margin-top: 30px;
+    }
+    section>.inner{
+        max-width:400px;
+        padding: 0 20px;
+    }
+    .tab-wrap{
+        height: 150vw;
+        overflow:hidden;
+    }
+    .tab-list{
+        display:inline-block;
+    }
+    .tab-list>li{
+        width:100%;
+    }
+    .tab-list div{
+        height:60%
+    }
+    .tab-list>li:first-child{
+    } */
+    /* turtle */
+}
+
+@media screen and (max-width:480px){
+    .sponser-wrap strong{
+        font-size: 4em;
+    }
+    .deal-top>.title-box>h2{
+        font-size: 4em;
+    }
+}

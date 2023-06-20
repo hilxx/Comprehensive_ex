@@ -1,0 +1,40 @@
+/* 여백 제거 */
+*{
+    margin:0;
+    padding:0;
+}
+/* li 장식 제거 */
+li{
+    list-style:none;
+}
+/* a 밑줄 제거, 글자색 */
+a{
+    text-decoration:none;
+    color:#666;
+    /* 기본 a색으로 쓰겠다. (사이트마다 다름) */
+}
+/* img 공백 제거 */
+img{
+    vertical-align:top;
+    /* 글자의 위치를 어디로 잡을 건지의 vertical-align임 */
+}
+/* address,i,em 기울기 되돌리기 */
+address,i,em{
+    font-style:normal;
+}
+/* 제목 가려주기 (.blind)*/
+/* body: 글씨체, 글자 기본 크기, 자간 , 줄간격, 글자색상(a말고 일반 글) */
+body{
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:13px;
+    /* (쌤: 제일 작은 글자를 기본으로 주고 시작함) */
+    color:#333;
+}
+/* float된 부모찾기_태그마다x 공통적o */
+.clearFix::after{
+    /* markup에다가 class명으로 clearFix를 가진 애들에게
+     무조건 after을 주겠다라는 명령어 */
+    content:"";
+    display:block;
+    clear:both;
+}

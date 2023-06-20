@@ -1,0 +1,728 @@
+/* .inner */
+.inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    /* background-color: rgba(0, 0, 255, 0.3); */
+}
+
+.header-inner {
+    padding: 0 60px;
+}
+/* 모바일용 */
+.mobile-gnb, .pager {
+    display: none;
+}
+
+/* header */
+header {
+    position: fixed;
+    width: 100%;
+    z-index:1000;
+    /* z-index 주고 시작하기 (밑에 항상 position을 쓰기 때문에!) */
+}
+
+header.fixed {
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+    align-items: center;
+}
+
+.logo {
+    width: 147px;
+    /* h1한테 사이즈 줬다고 이미지가 줄지 않기 때문에 img에도 사이즈 주기 */
+}
+
+.logo img {
+    width: 100%;
+}
+
+#nav {
+    display: flex;
+    gap: 50px;
+    /* display:none은 flex 때문에 줄 수 없기 때문에 opacity주기 */
+    opacity: 0;
+}
+
+#nav>li>a {
+    color: white;
+    font-size: 1.175em;
+    font-weight: 500;
+}
+
+.gnb {
+    display: flex;
+    gap: 15px;
+    /* li에 margin줘서 띄워도 됨 */
+}
+
+.gnb>li>a {
+    display: block;
+    padding: 8px 20px;
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+}
+
+.gnb>.ham-btn>a {
+    width: 40px;
+    height: 40px;
+    padding: 6px 10px;
+    background: white;
+}
+
+.gnb>.ham-btn>a>span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #cc0000;
+    margin: 4px 0;
+}
+
+/* 나중에~~ */
+.popup-menu {
+    display: none;
+}
+
+/* #container */
+#container {}
+
+.mainBanner {
+    /* 임시 방편 height:100vh;
+    padding:300px; */
+    height: 100vh;
+}
+
+.banner {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    color: white;
+}
+
+.banner>li {
+    width: calc(100% / 3);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position:relative;
+}
+
+.banner>.banner1 {
+    background-color: #c00202;
+}
+
+.banner>.banner2 {
+    background-image: url(../images/main/visual03.jpg);
+    background-size: cover;
+}
+
+.banner>.banner3 {
+    background-image: url(../images/main/visual02.jpg);
+    background-size: cover;
+}
+
+.banner>li>.inner {
+    /* 왼쪽 줄 */
+    border-left: 1px solid white;
+    padding-left: 30px;
+    width: 60%;
+    position: relative;
+    z-index: 100;
+}
+
+.banner>.banner1::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/common/bg-dot.png);
+    position: absolute;
+    z-index: 10;
+}
+/* after공통사항 */
+.banner>li::after{
+    content:"";
+    display:block;
+    position:absolute;
+    z-index:1;
+    /* width: 1280px; */
+    width:100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* border: 1px solid green; */
+    background-repeat: no-repeat;
+    background-position: 100% bottom;
+}
+.banner>.banner1::after {
+    /* 공통사항으로 repeat를 넣을 때 각 요소에는 background-image처럼
+    정확히 써줘야 한다.
+    그러나 background안에 두 개 이상의 img가 들어갈 경우에는 background만 써야한다. */
+    background-image: url(../images/main/v_polygon.png),
+    url(../images/main/v1-shadow.png);
+    background-position: center 50%, 30% 200px;
+}
+
+.banner>.banner2::after{
+    background-image: url(../images/main/v2-trophy.png);
+}
+
+.banner>.banner3::after{
+    background-image: url(../images/main/v3-mockup.png),
+    url(../images/main/v_polygon.png);
+    background-position: 80% center, 100% bottom;
+}
+
+.banner>li>.inner h2 {
+    font-size: 5em;
+}
+
+.banner>li>.inner h2 span {
+    display: block;
+    font-weight: 300;
+}
+
+.banner>li>.inner .text {
+    margin: 20px 0 30px;
+}
+
+.banner>li>.inner .more-btn {}
+
+.banner>li>.inner .more-btn>a {
+    display: inline-block;
+    color: white;
+    padding: 0 30px 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    transition: 0.5s;
+    opacity: 0.8;
+}
+
+.banner>li>.inner .more-btn>a::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    /* 중심점을 잡기 위해 origin 을 준 것 */
+    transform-origin: right bottom;
+    transform: rotate(-45deg);
+}
+
+.banner>li>.inner .more-btn>a:hover {
+    padding-right: 40px;
+    opacity: 1;
+}
+/* 공통사항 */
+.banner .arrow-btn>li{
+    position: absolute;
+    top:50%;
+    z-index:1000;
+}
+.banner .arrow-btn>.left-btn{
+    left:50px;
+}
+.banner .arrow-btn>.right-btn{
+    right:50px;
+}
+.banner .arrow-btn>li>a{
+    display:block;
+    color:white;
+    font-size: 1.5em;
+    padding-bottom:10px;
+    /* 화살표 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    position:relative;
+}
+.banner .arrow-btn>.left-btn>a{
+    padding-left: 30px;
+}
+.banner .arrow-btn>.right-btn>a{
+    padding-right: 30px;
+}
+.banner .arrow-btn>li>a::after{
+    content:"";
+    display:block;
+    width:1px;
+    height:15px;
+    background:rgba(255, 255, 255, 0.5);
+    position:absolute;
+    bottom:0;
+    transform-origin: 50% 100%;
+}
+.banner .arrow-btn>.left-btn>a::after{
+    left:0;
+    transform: rotate(45deg);
+}
+.banner .arrow-btn>.right-btn>a::after{
+    right:0;
+    transform: rotate(-45deg);
+}
+/* scroll-ani */
+.scroll-ani{
+    position:absolute;
+    left:50%;
+    bottom:100px;
+    transform: translateX(-50%);
+    z-index:1000;
+    animation: scroll-ani 1s infinite alternate;
+    text-align:center;
+}
+.scroll-ani span{
+    display:block;
+    color:white;
+    font-size:0.7em;
+    margin-bottom: 5px;
+    
+}
+@keyframes scroll-ani{
+    0%{
+        bottom: 100px;
+    }
+    100%{
+        bottom:70px;
+    }
+}
+/* main 공통사항*/
+main section{
+    padding: 100px 0 70px;
+    position:relative;
+    /* 화살표의 부모 */
+}
+main .title{
+    font-size: 2.7em;
+    letter-spacing: 3px;
+    text-align:center;
+}
+main .title::before{
+    content:"";
+    display:block; 
+    width: 6px;
+    height: 8px;
+    background:#cc0000;
+    margin: 0 auto;
+    transform: skew(-30deg);
+}
+main .sub-title{
+    text-align: center;
+    font-size: 1.1em;
+    color: #888;
+    margin-bottom: 50px;
+    word-break: keep-all;
+}
+main section ul{
+    display:flex;
+    justify-content: space-between;
+}
+main section ul img{
+    width: 100%;
+}
+/* service */
+.service-list{}
+.service-list>li{
+    width:13%;
+    position:relative;
+}
+.service-list>.on{
+    width:58%;
+}
+.service-list>li>a{
+    display:block;
+    height:470px;
+    background-position:center;
+    background-repeat:no-repeat;
+    color:white;
+    background-size:cover;
+}
+.service-list>li:first-child>a{
+    background-image:url(../images/main/sv_bg1.png);
+}
+.service-list>li:nth-child(2)>a{
+    background-image:url(../images/main/sv_bg2.png);
+}
+.service-list>li:nth-child(3)>a{
+    background-image:url(../images/main/sv_bg3.png);
+}
+.service-list>li:last-child>a{
+    background-image:url(../images/main/sv_bg4.png);
+}
+.service-list>li>a .show-title{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size:1.2em;
+}
+.service-list>li>a .text-box{
+    display:none;
+    padding:90px 60px 0;
+}
+.service-list>li>a .text-box>span{
+    font-weight:900;
+}
+.service-list>li>a .text-box>h4{
+    font-size:2.5em;
+    font-weight:400;
+    margin: 15px 0 20px;
+}
+.service-list>li>a .text-box>p{
+    max-width: 60%;
+}
+.service-list>li>a .text-box>ul{
+    display:block;
+    margin-top:20px;
+    font-size: 0.9em;
+}
+.service-list>.on>a .show-title{
+    display:none;
+}
+.service-list>.on>a .text-box{
+    display:block;
+}
+.service-list>.on>a ul>li:last-child{
+    padding-bottom:50px;
+    border-bottom: 1px solid white;
+    width:130px;
+    position:relative;
+}
+.service-list>.on>a ul>li:last-child::after{
+    content:"";
+    display:block;
+    width:1px;
+    height:15px;
+    background:white;
+    position:absolute;
+    bottom:0;
+    right:0;
+    transform-origin: right bottom;
+    transform: rotate(-30deg);
+}
+/* portfolio */
+.portfolio-list{
+    flex-wrap: wrap;
+    /* flex를 주면 자식들이 아무리 커도 한 줄에 들어가기 때문에 wrap을 써서
+    밑으로 보내기 */
+}
+.portfolio-list>li{
+    width:31%;
+    /* 남는 공간은 사이사이 공백으로 들어감 */
+    margin-bottom: 80px;
+}
+.portfolio-list>li .img-box{
+    overflow:hidden;
+}
+.portfolio-list>li img{
+    transition:0.5s;
+}
+.portfolio-list>li:hover img{
+    transform: scale(1.1);
+}
+.portfolio-list>li .text-box{
+    margin-top:40px;
+    padding-left: 30px;
+    border-left: 1px solid #ccc;
+}
+.portfolio-list>li .text-box>h4{
+    font-size:1.7em;
+}
+.portfolio-list>li .text-box>p{
+    margin: 25px 0;
+    color: #999;
+}
+.portfolio-list>li .text-box>.btn{}
+.portfolio-list>li .text-box>.btn>span{
+    display:inline-block;
+    border: 1px solid #666;
+    padding: 3px 10px;
+    border-radius: 30px;
+    margin-right: 5px;
+    color: #666;
+}
+.port-more{
+    text-align: center;
+}
+.port-more>a{}
+.port-more>a::before{
+    content:"";
+    display:block;
+    width: 200px;
+    height: 40px;
+    background: #cc0000;
+    position:absolute;
+    left:50%;
+    transform: translateX(-50%) skew(-30deg);
+    transition:0.3s;
+}
+.port-more>a>span{
+    position:relative;
+    line-height:40px;
+    color: white;
+}
+.port-more>a:hover::before{
+    transform: translateX(-50%) skew(0);
+}
+/* 주요 고객사 인증 수상의 공통 */
+main .arrow-btn>li>a{
+    display:block;
+    width: 23px;
+    height:42px;
+    text-indent: -9999px;
+    position:absolute;
+    bottom: 100px;
+}
+main .arrow-btn>li:first-child>a{
+    /* 위치 잡기 */
+    left:-23px;
+    background-image:url(../images/main/main_prev.png);
+}
+main .arrow-btn>li:last-child>a{
+    background-image:url(../images/main/main_next.png);
+}
+/* 주요 고객사 */
+.partner-wrap>.part-list-wrap{
+    width: 90%;
+    margin: 0 auto;
+    overflow:hidden;
+}
+.partner-wrap>div>.partner-list{
+    /* width: 100%*자식의 갯수 / 보여질 개수 */
+    width:calc(100% * 12 / 6);
+}
+.partner-wrap>div>.partner-list>li{
+    padding: 0 30px;
+    /* padding을 더 주면 사이즈를 줄일 수 있음 */
+}
+/* 인증/수상 */
+.award-wrap>.a-list-wrap{
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+}
+.a-list-wrap::before{
+    content:"";
+    display:block;
+    width:100%;
+    height: 1px;
+    background: url(../images/main/award_line.png) center;
+}
+.award-wrap>.a-list-wrap>.award-list{
+    width:calc(100% * 13 / 6);
+}
+.award-wrap>.a-list-wrap>.award-list>li{
+    padding: 0 30px;
+}
+.award-list>li img{
+    width: auto;
+    /* 위에 공통사항으로 너비를 넓어진 것을 auto를 주면 원사이즈로 돌아옴 */
+}
+.award-list>li strong{
+    display:block;
+    font-size: 1.1em;
+}
+.award-list>li span{
+    font-size:0.9em;
+}
+/* footer */
+footer>div{
+    padding: 40px 0;
+}
+.footer-top{
+    border-top: 1px solid #ccc;
+}
+.foot-nav{
+    display:flex;
+    justify-content: space-between;
+}
+.foot-nav>li>a{
+    font-size:1.1em;
+    font-weight: bold;
+}
+.foot-nav>li>ul{
+    margin-top:20px;
+    line-height: 2;
+}
+.footer-bottom{
+    background: #333;
+    color: #ccc;
+}
+.footer-bottom>.inner{
+    display:flex;
+    justify-content: space-between;
+}
+.priv{
+    display:flex;
+    line-height:0.9;
+    margin-bottom: 30px;
+}
+.priv>li:first-child{
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid white;
+    /* before나 after주기 */
+}
+.priv>li>a{
+    color:white;
+    font-size:1.1em;
+}
+.address{
+    display:flex;
+    flex-wrap:wrap;
+    max-width: 710px;
+}
+.address>div{
+    width:35%;
+    line-height:2;
+}
+.address>div:nth-child(2n){
+    width:65%;
+}
+.address>div:last-child{
+    width:100%;
+}
+.address>div>strong{
+    display:block;
+    /* 너비값이 필요해서 block을 줌 */
+    float:left;
+    width: 50px;
+}
+.address>div:nth-child(2n)>strong{
+    width:120px;
+}
+.address>div>span{
+    display: block;
+    color:#888;
+    float:left;
+}
+.foot-link>.link{
+    display:flex;
+    gap:10px;
+}
+.foot-link>.link>li{
+}
+.foot-link>.link a{
+    color:white;
+    display:block;
+    width:170px;
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    background: #424242;
+    border-radius: 30px;
+    padding: 0 30px;
+    transition: 0.5s;
+}
+.foot-link>.link>li:hover>a{
+    display:block;
+    width:170px;
+    height:40px;
+    background: white;
+    color:#f05a3f;
+}
+.info-list{
+    margin:20px 0;
+}
+.info-list>li{
+    font-size: 0.9em;
+    color: #888;
+    padding-left:20px;
+    position:relative;
+}
+.info-list>li::before{
+    content:"";
+    display:inline-block;
+    width: 16px;
+    height:17px;
+    /* position:absolute; */
+    background:url(../images/common/ft-icons.png) no-repeat;
+    background-size: 16px;
+    /* left:0;
+    top: 50%;
+    transform: translateY(-50%); */
+}
+.info-list>li:nth-child(2)::before{
+    background-position: 0 -15px;
+}
+.info-list>li:last-child::before{
+    background-position: 0 -30px;
+}
+.copy{
+    font-size: 0.9em;
+    color:#999;
+}
+/* .footer-bottom>.inner{
+    position:relative;
+}
+.footer-bottom>.inner>.address-wrap{
+    display:flex;
+}
+.footer-bottom>.inner>.address-wrap>.priv{
+    display:flex;
+    justify-content: start;
+}
+.footer-bottom>.inner>.address-wrap>.priv a{
+    color: white;
+    border-left: 1px solid white;
+}
+.footer-bottom>.inner>.address-wrap>.priv>li:first-child>a{
+    border-left: none;
+}
+.footer-bottom>.inner>.address-wrap>.priv>li:last-child>a{
+    padding-right:20px;
+}
+.footer-bottom>.inner>.address-wrap>.priv strong{
+    padding-right: 20px;
+}
+.footer-bottom>.inner>.address-wrap>.address{
+    position:absolute;
+    top: 50px;
+}
+.footer-bottom>.inner>.address-wrap>.address>div{
+    display:inline-block;
+}
+.footer-bottom>.inner>.foot-link{
+    display:flex;
+    justify-content:right;
+}
+.footer-bottom>.inner>.foot-link>link{
+    position:relative;
+}
+.footer-bottom>.inner>.foot-link>link>li{
+    position:absolute;
+}
+.footer-bottom>.inner>.foot-link>link a{
+    color:white;
+} */
+.top-btn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background: #222;
+    opacity:0.5;
+    width:42px;
+    height:42px;
+    border-radius: 4px;
+    text-indent:-9999em;
+}
+.top-btn::before{
+    content:"";
+    display:block;
+    width:10px;
+    height:10px;
+    border-left: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    transform: translate(-50%, -50%) rotate(135deg);
+    position:absolute;
+    top:50%;
+    left:50%;
+}

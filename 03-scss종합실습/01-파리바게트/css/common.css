@@ -1,0 +1,52 @@
+/* 모든 여백 제거 */
+h1,h2,h3,h4,h5,h6,ul,ol.dl,li,dt,dd,*{
+    margin:0;
+    padding:0;
+}
+/* list 장식 */
+li{
+    list-style:none;
+}
+/* a */
+a{
+    text-decoration:none;
+    color:#222;
+}
+/* img는 글자와 베이스라인이 달라서 공백이 자동으로 생김->반드시 제거! */
+img{
+    vertical-align:middle;
+    /* img/table에만 사용 가능 */
+}
+/* .blind */
+.blind{
+    position:absolute;
+    top:-99999px;
+}
+/* .clearFix */
+.clearFix::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.skip a{
+    display:block;
+    position:absolute;
+    top:-9999px;
+    background:#000;
+    color:#fae100;
+}
+.skip a:focus{
+    top:0;
+    width:150px;
+    text-align:center;
+    line-height:2;
+}
+/* body */
+body{
+    /* font-family:"kakaoBig", sans-serif; */
+    font-family: 'Noto Sans KR', sans-serif;
+    /* 원래 기본 크기 16px
+    제일 작은 폰트 사이즈를 common으로 주기도 함 */
+    font-size:14px;
+    color:#000;
+}

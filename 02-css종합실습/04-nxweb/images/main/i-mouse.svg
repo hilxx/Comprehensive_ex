@@ -1,0 +1,10 @@
+<svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="85px" height="108px">
+<path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
+ d="M42.000,83.000 C32.611,83.000 25.000,75.389 25.000,66.000 L25.000,40.000 C25.000,30.611 32.611,23.000 42.000,23.000 C51.389,23.000 59.000,30.611 59.000,40.000 L59.000,66.000 C59.000,75.389 51.389,83.000 42.000,83.000 ZM47.000,37.000 C47.000,34.239 44.761,32.000 42.000,32.000 C39.239,32.000 37.000,34.239 37.000,37.000 L37.000,41.000 C37.000,43.761 39.239,46.000 42.000,46.000 C44.761,46.000 47.000,43.761 47.000,41.000 L47.000,37.000 Z"/>
+<path fill-rule="evenodd"  stroke="rgb(255, 255, 255)" stroke-width="2px" stroke-linecap="butt" stroke-linejoin="miter" fill="none"
+ d="M50.485,97.000 L42.000,105.485 L33.515,97.000 "/>
+<text kerning="auto" font-family="Gulim" fill="rgb(0, 0, 0)" font-size="12px" x="0px" y="9.06200000000001px"><tspan font-size="12px" font-family="Noto Sans KR" fill="#FFFFFF">SCROLL&#32;DOWN</tspan></text>
+</svg>
